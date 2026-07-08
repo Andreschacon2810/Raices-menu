@@ -76,7 +76,12 @@
             items: [
                 product({ id: "medallones-solomillo", price: "24,00 €" }),
                 product({ id: "entrecot-raices", price: "23,00 €" }),
-                product({ id: "cordero-miel-pistacho", price: "24,00 €" }),
+                product({
+                    id: "cordero-miel-pistacho",
+                    price: "24,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/cordero-miel-pistacho.jpg"
+                }),
                 product({ id: "secreto-iberico", price: "23,00 €" })
             ]
         },
