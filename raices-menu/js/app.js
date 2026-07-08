@@ -14,7 +14,6 @@
     const storyToggle = document.querySelector(".story__toggle");
     const modal = document.querySelector("#dishModal");
     const modalDialog = modal?.querySelector(".modal__dialog");
-    const modalMedia = modal?.querySelector(".modal__media");
     const modalImage = modal?.querySelector("#modalImage");
     const modalTitle = modal?.querySelector("#modalTitle");
     const modalPrice = modal?.querySelector("#modalPrice");
@@ -35,11 +34,7 @@
     let lastFocusedElement = null;
     let activeModalProductId = null;
 
-    if (modalMedia && modalIngredients && !modalMedia.contains(modalIngredients)) {
-        modalIngredients.classList.add("modal-ingredients");
-        modalMedia.appendChild(modalIngredients);
-    }
-
+    modalIngredients?.classList.add("modal-ingredients");
     modalAllergens?.classList.add("modal-allergens");
 
     function getInitialLanguage() {

@@ -1,4 +1,4 @@
-const CACHE_NAME = "raices-menu-v5";
+const CACHE_NAME = "raices-menu-v6";
 
 const CORE_ASSETS = [
     "./",
