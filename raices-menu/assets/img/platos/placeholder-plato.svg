@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+    <title id="title">Imagen de plato pendiente</title>
+    <desc id="desc">Ilustracion sencilla de un plato para usar como marcador temporal.</desc>
+    <rect width="960" height="640" fill="#f3efe6"/>
+    <circle cx="480" cy="320" r="205" fill="#fffdf8" stroke="#b58a5a" stroke-width="12"/>
+    <circle cx="480" cy="320" r="124" fill="none" stroke="#d8d1c7" stroke-width="8"/>
+    <path d="M344 323c45-80 96-107 157-82 46 19 79 16 115-6-25 77-67 127-126 149-52 19-101 0-146-61Z" fill="#68684f" opacity=".18"/>
+    <path d="M360 382c68 31 148 30 240-4" fill="none" stroke="#8a613f" stroke-width="10" stroke-linecap="round"/>
+    <text x="480" y="526" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#5b3d2a">Foto del plato pendiente</text>
+</svg>

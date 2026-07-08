@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#5b3d2a">
+    <meta name="description" content="Carta digital del restaurante Raíces en Gran Tarajal, Fuerteventura.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Raíces">
+    <title>Carta Raíces · Gran Tarajal</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="assets/icons/icon-192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="preload" href="assets/img/logo-raices.png" as="image">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/menu-data.js" defer></script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body data-page="home">
+    <a class="skip-link" href="#carta">Saltar a la carta</a>
+    <div class="sr-only" id="languageLive" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="hero" id="inicio">
+        <div class="hero__inner">
+            <div class="language-selector" id="languageSelector">
+                <button class="language-toggle" id="languageToggle" type="button" aria-expanded="false" aria-controls="languagePanel" aria-label="Cambiar idioma">
+                    <span class="language-toggle__icon" aria-hidden="true">◎</span>
+                    <span class="language-toggle__label">Idioma</span>
+                    <span class="language-toggle__code">ES</span>
+                </button>
+                <div class="language-panel" id="languagePanel" role="group" aria-label="Selector de idioma"></div>
+            </div>
+            <img class="hero__logo" src="assets/img/logo-raices.png" alt="Logo de Raíces con raíces de árbol grabadas en madera" width="900" height="832">
+            <p class="hero__eyebrow">Gran Tarajal · Fuerteventura</p>
+            <h1>RAÍCES</h1>
+            <p class="hero__kicker">Carta</p>
+            <p class="hero__tagline">Misma playa, distintos estilos, distintas raíces</p>
+            <div class="hero__actions" aria-label="Accesos principales">
+                <a class="button button--primary" href="#carta">Ver la carta</a>
+                <a class="button button--secondary" href="#historia">Nuestra historia</a>
+            </div>
+            <a class="scroll-cue" href="#historia" aria-label="Bajar a Nuestra historia">
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="story section-shell" id="historia" aria-labelledby="historia-title">
+            <div class="story__content">
+                <p class="section-kicker">Nuestra historia</p>
+                <h2 id="historia-title">Un lugar para estar, para disfrutar, para volver.</h2>
+                <div class="story__body" id="storyBody">
+                    <p>En Raíces queremos que cada visita sea algo más que una comida. Un lugar donde sentarse frente al mar, en el corazón de Gran Tarajal, y dejar que el tiempo fluya sin prisas.</p>
+                    <p>Aquí todo empieza al sentarse a la mesa. Comienza a disfrutar con una copa de vino canario, un Aperol Spritz o un cóctel casero mientras te susurra el sonido del mar.</p>
+                    <p>Nuestra cocina nace de nuestras raíces, apostando por el producto fresco. Pescado local según el día, carnes a la parrilla y una selección de platos pensados para compartir.</p>
+                    <p>La mesa se llena poco a poco: entrantes ligeros, carpaccios, platos para el centro... sabores sencillos, bien cuidados, para disfrutar.</p>
+                    <p>Creemos en una forma de comer más libre, más cercana, más viva. Probar, compartir, brindar... y alargar el momento sin mirar el reloj.</p>
+                    <p>Raíces es eso: un lugar para estar, para disfrutar, para volver.</p>
+                    <p>Bienvenidos.</p>
+                </div>
+                <button class="story__toggle" type="button" aria-expanded="false" aria-controls="storyBody">Leer más</button>
+            </div>
+        </section>
+
+        <section class="menu menu-chooser section-shell" id="carta" aria-labelledby="carta-title">
+            <div class="menu__intro">
+                <p class="section-kicker">Carta</p>
+                <h2 id="carta-title">Sabores para compartir frente al mar</h2>
+                <p>Producto fresco, cocina cercana y una mesa pensada para disfrutarse sin prisas.</p>
+            </div>
+            <div id="categoryChooser" class="category-chooser" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <img src="assets/img/logo-raices.png" alt="Logo de Raíces" width="220" height="203" loading="lazy">
+            <p class="site-footer__brand">Raíces · Gran Tarajal · Fuerteventura</p>
+            <p>Un lugar para estar, para disfrutar, para volver.</p>
+            <p>Los productos y precios pueden estar sujetos a cambios.</p>
+            <p>Consulta con nuestro personal cualquier duda sobre alérgenos.</p>
+            <!-- Pendiente: dirección exacta, teléfono, horarios, correo electrónico y redes sociales. -->
+        </div>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Volver arriba">
+        <span aria-hidden="true">↑</span>
+    </button>
+
+    <div class="modal" id="dishModal" hidden>
+        <div class="modal__backdrop" data-modal-close></div>
+        <section class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" tabindex="-1">
+            <button class="modal__close" type="button" aria-label="Cerrar ficha del plato" data-modal-close>×</button>
+            <div class="modal__media">
+                <img id="modalImage" src="assets/img/platos/placeholder-plato.svg" alt="" width="960" height="640" loading="lazy">
+            </div>
+            <div class="modal__content">
+                <p class="section-kicker">Ver plato</p>
+                <h2 id="modalTitle"></h2>
+                <p class="modal__price" id="modalPrice"></p>
+                <p id="modalDescription"></p>
+                <div id="modalLongDescription"></div>
+                <div id="modalIngredients"></div>
+                <div id="modalAllergens"></div>
+                <button class="button button--primary" type="button" data-modal-close>Cerrar</button>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
