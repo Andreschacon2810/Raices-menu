@@ -156,7 +156,6 @@
                     }
                 }),
                 product({ id: "spritz", price: "6,00 €", details: true, description: false }),
-                product({ id: "martini", price: "6,00 €", details: true, description: false }),
                 product({
                     id: "martini-bianco",
                     price: "6,00 €",
@@ -188,7 +187,7 @@
                     id: "pina-colada",
                     price: "8,00 €",
                     interactive: true,
-                    image: "assets/img/platos/pina-colada.png",
+                    image: "assets/img/platos/pina-colada.png?v=11",
                     buttonLabelKey: "interface.viewCocktail",
                     modalEyebrowKey: "interface.viewCocktail",
                     longDescription: true,
