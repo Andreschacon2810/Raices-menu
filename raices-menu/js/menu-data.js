@@ -11,7 +11,7 @@
         prices: data.prices || null,
         interactive: data.interactive || false,
         image: data.image || null,
-        imageFallback: data.imageFallback || null,
+        imageFallback: data.imageFallback || (data.image ? "assets/img/platos/placeholder-plato.svg" : null),
         buttonLabelKey: data.buttonLabelKey || null,
         modalEyebrowKey: data.modalEyebrowKey || null,
         longDescriptionKey: data.longDescription ? `products.${data.id}.longDescription` : null,
@@ -29,7 +29,13 @@
                 product({ id: "uvas-y-quesos", price: "13,00 €" }),
                 product({ id: "croquetas", price: "13,00 €" }),
                 product({ id: "langostinos-ajillo", price: "13,00 €" }),
-                product({ id: "carpaccio-pulpo-local", price: "16,00 €" }),
+                product({
+                    id: "carpaccio-pulpo-local",
+                    price: "16,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/carpaccio-pulpo.png",
+                    ingredients: true
+                }),
                 product({ id: "carpaccio-salmon", price: "16,00 €" }),
                 product({ id: "jamon-iberico-bellota", price: "32,00 €" }),
                 product({ id: "roast-beef", price: "16,00 €" }),
@@ -43,7 +49,13 @@
             items: [
                 product({ id: "ensalada-cesar", price: "14,00 €" }),
                 product({ id: "ensalada-raices", price: "13,50 €" }),
-                product({ id: "parmigiana-melanzane", price: "13,00 €" })
+                product({
+                    id: "parmigiana-melanzane",
+                    price: "13,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/parmigiana.png",
+                    ingredients: true
+                })
             ]
         },
         {
@@ -64,7 +76,13 @@
                     priceKey: "interface.bySelectionWeight",
                     details: true
                 }),
-                product({ id: "fritura-mar", price: "22,00 €" }),
+                product({
+                    id: "fritura-mar",
+                    price: "22,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/fritura-mixta.png",
+                    ingredients: true
+                }),
                 product({ id: "salmon-naranja", price: "24,00 €" }),
                 product({ id: "pulpo-km0", price: "24,00 €" })
             ]
@@ -75,12 +93,19 @@
             noteKey: "sectionNotes.de-la-tierra.text",
             items: [
                 product({ id: "medallones-solomillo", price: "24,00 €" }),
-                product({ id: "entrecot-raices", price: "23,00 €" }),
+                product({
+                    id: "entrecot-raices",
+                    price: "23,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/entrecot-raices.png",
+                    ingredients: true
+                }),
                 product({
                     id: "cordero-miel-pistacho",
                     price: "24,00 €",
                     interactive: true,
-                    image: "assets/img/platos/cordero-miel-pistacho.jpg"
+                    image: "assets/img/platos/cordero-miel-pistacho.jpg",
+                    ingredients: true
                 }),
                 product({ id: "secreto-iberico", price: "23,00 €" })
             ]
@@ -91,7 +116,19 @@
             noteKey: "sectionNotes.postres.text",
             items: [
                 product({ id: "tarta-queso", price: "7,00 €", details: true }),
-                product({ id: "polvito-uruguayo", price: "7,00 €" })
+                product({
+                    id: "tiramisu",
+                    interactive: true,
+                    image: "assets/img/platos/tiramisu.png",
+                    ingredients: true
+                }),
+                product({
+                    id: "polvito-uruguayo",
+                    price: "7,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/polvito-uruguayo.png",
+                    ingredients: true
+                })
             ]
         },
         {
@@ -120,7 +157,33 @@
                 }),
                 product({ id: "spritz", price: "6,00 €", details: true, description: false }),
                 product({ id: "martini", price: "6,00 €", details: true, description: false }),
+                product({
+                    id: "martini-bianco",
+                    price: "6,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/martini-bianco.png",
+                    buttonLabelKey: "interface.viewCocktail",
+                    modalEyebrowKey: "interface.viewCocktail",
+                    ingredients: true
+                }),
+                product({
+                    id: "martini-rosso",
+                    price: "6,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/martini-rosso.png",
+                    buttonLabelKey: "interface.viewCocktail",
+                    modalEyebrowKey: "interface.viewCocktail",
+                    ingredients: true
+                }),
                 product({ id: "mojito", price: "8,00 €", details: true, description: false }),
+                product({
+                    id: "margarita",
+                    interactive: true,
+                    image: "assets/img/platos/margarita.png",
+                    buttonLabelKey: "interface.viewCocktail",
+                    modalEyebrowKey: "interface.viewCocktail",
+                    ingredients: true
+                }),
                 product({
                     id: "pina-colada",
                     price: "8,00 €",
@@ -132,8 +195,24 @@
                     longDescription: true,
                     ingredients: true
                 }),
-                product({ id: "espresso-martini", price: "8,00 €" }),
-                product({ id: "negroni", price: "8,00 €" })
+                product({
+                    id: "espresso-martini",
+                    price: "8,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/espresso-martini.png",
+                    buttonLabelKey: "interface.viewCocktail",
+                    modalEyebrowKey: "interface.viewCocktail",
+                    ingredients: true
+                }),
+                product({
+                    id: "negroni",
+                    price: "8,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/negroni.png",
+                    buttonLabelKey: "interface.viewCocktail",
+                    modalEyebrowKey: "interface.viewCocktail",
+                    ingredients: true
+                })
             ]
         },
         {

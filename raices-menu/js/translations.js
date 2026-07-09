@@ -133,7 +133,11 @@
                 "uvas-y-quesos": { name: "Uvas y Quesos Saben a Besos", description: "Selección de auténticos quesos de cabra de Fuerteventura." },
                 croquetas: { name: "Croquetas", description: "Según selección del día." },
                 "langostinos-ajillo": { name: "Langostinos al Ajillo", description: "Plato tradicional español de langostinos al ajillo con nuestro guiño." },
-                "carpaccio-pulpo-local": { name: "Carpaccio de Pulpo Local con Toques Canarios", description: "Pulpo local finamente cortado, emplatado con granadas majoreras, láminas de papas y nuestro toque de Raíces." },
+                "carpaccio-pulpo-local": {
+                    name: "Carpaccio de Pulpo Local con Toques Canarios",
+                    description: "Pulpo local finamente cortado, emplatado con granadas majoreras, láminas de papas y nuestro toque de Raíces.",
+                    ingredients: ["Pulpo", "Papa", "Rúcula", "Granadilla canaria", "Aceite de oliva", "Limón", "Pimentón en polvo"]
+                },
                 "carpaccio-salmon": { name: "Carpaccio de Salmón al Estilo Raíces", description: "Salmón fresco marinado al estilo de la casa." },
                 "jamon-iberico-bellota": { name: "Jamón Ibérico de Bellota", description: "Bellota 100 % · D.O.P. Dehesas de Extremadura." },
                 "roast-beef": { name: "Roast Beef", description: "Carne de ternera marinada al estilo del chef, hecha al horno, cortada en lonchas finas y acompañada de rúcula, alcaparras, escamas de parmesano y AOVE." },
@@ -141,33 +145,81 @@
                 "carpaccio-remolacha": { name: "Carpaccio de Remolacha", description: "Remolacha finamente cortada, rúcula fresca, fruta de temporada y queso rulo de cabra." },
                 "ensalada-cesar": { name: "Ensalada César", description: "Ensalada de lechuga, pollo empanado, nuestra salsa César casera y queso parmesano rallado." },
                 "ensalada-raices": { name: "Ensalada Raíces", description: "Ensalada mixta con verduras frescas y frutas del día." },
-                "parmigiana-melanzane": { name: "Parmigiana di Melanzane", description: "Berenjenas fritas terminadas en el horno, con salsa de tomate casera, mozzarella y queso parmesano, aromatizadas con albahaca fresca." },
+                "parmigiana-melanzane": {
+                    name: "Parmigiana di Melanzane",
+                    description: "Berenjenas fritas terminadas en el horno, con salsa de tomate casera, mozzarella y queso parmesano, aromatizadas con albahaca fresca.",
+                    ingredients: ["Berenjena", "Salsa de tomate casera", "Queso", "Especias", "Albahaca"]
+                },
                 "pasta-marisco": { name: "Pasta al Marisco", description: "Pasta fresca italiana salteada con almejas, chipirones, langostinos y mejillones, con nuestra salsa de tomate casera." },
                 "pasta-salmon": { name: "Pasta al Salmón", description: "Pasta fresca italiana salteada con gambas, salmón fresco, toques de queso y nata." },
                 "pescado-fresco-local": { name: "Pescado Fresco Local", description: "Acompañado de papas arrugadas y ensalada, con nuestro mojo picón casero.", details: ["A la espalda", "Frito", "Limpio sin espinas"] },
-                "fritura-mar": { name: "Fritura de Mar", description: "Calamares, chipirones, langostinos y gambones fritos, servidos con ensalada y papas fritas caseras." },
+                "fritura-mar": {
+                    name: "Fritura de Mar",
+                    description: "Calamares, chipirones, langostinos y gambones fritos, servidos con ensalada y papas fritas caseras.",
+                    ingredients: ["Gambas", "Chipirones", "Calamar", "Langostino", "Papas fritas", "Ensalada verde", "Limón"]
+                },
                 "salmon-naranja": { name: "Salmón a la Naranja", description: "Lomo de salmón con reducción de zumo de naranja natural, con su puré de papas casero." },
                 "pulpo-km0": { name: "Pulpo Km 0", description: "Pulpo local salteado al wok con tomates cherry y papa canaria." },
                 "medallones-solomillo": { name: "Medallones de Solomillo al Grill", description: "Medallones de solomillo a la parrilla, acompañados de verduras y papas al horno." },
-                "entrecot-raices": { name: "Entrecot al Estilo Raíces", description: "Entrecot al grill cortado en tiras, presentado con rúcula, tomates cherry de Fuerteventura, crema balsámica y queso de cabra de Fuerteventura, acompañado de papas fritas." },
-                "cordero-miel-pistacho": { name: "Cordero con Miel y Pistacho", description: "Cordero con miel y pistacho hecho al grill, acompañado de papas y ensalada verde." },
+                "entrecot-raices": {
+                    name: "Entrecot al Estilo Raíces",
+                    description: "Entrecot al grill cortado en tiras, presentado con rúcula, tomates cherry de Fuerteventura, crema balsámica y queso de cabra de Fuerteventura, acompañado de papas fritas.",
+                    ingredients: ["Entrecot", "Rúcula", "Tomate cherry", "Queso parmesano de cabra", "Salsa balsámica", "Papas fritas", "Pimientos de Padrón"]
+                },
+                "cordero-miel-pistacho": {
+                    name: "Cordero con Miel y Pistacho",
+                    description: "Cordero con miel y pistacho hecho al grill, acompañado de papas y ensalada verde.",
+                    ingredients: ["Cordero", "Miel", "Pistacho", "Papas", "Ensalada verde"]
+                },
                 "secreto-iberico": { name: "Secreto Ibérico", description: "Corte de cerdo ibérico a la parrilla, servido con papas fritas y verdura de temporada." },
                 "tarta-queso": { name: "Tarta de Queso", description: "Cremosa tarta de queso con base de galleta al horno.", details: ["Frutos rojos", "Caramelo", "Chocolate"] },
-                "polvito-uruguayo": { name: "Polvito Uruguayo", description: "Postre tradicional canario montado en capas de galletas y suspiros, con nuestra crema de polvito uruguayo." },
+                tiramisu: {
+                    name: "Tiramisú",
+                    description: "Postre italiano cremoso con café, cacao y una base suave de bizcocho.",
+                    ingredients: ["Galleta o bizcocho", "Café", "Crema pastelera o mascarpone", "Cacao en polvo", "Huevos", "Azúcar"]
+                },
+                "polvito-uruguayo": {
+                    name: "Polvito Uruguayo",
+                    description: "Postre tradicional canario montado en capas de galletas y suspiros, con nuestra crema de polvito uruguayo.",
+                    ingredients: ["Galleta", "Dulce de leche", "Nata", "Suspiro o merengue", "Barquillos"]
+                },
                 "fingers-pollo": { name: "Fingers de Pollo", description: "Pollo de corral fresco, empanado y acompañado de papas fritas." },
                 "pasta-tomate": { name: "Pasta al Tomate", description: "Pasta italiana fresca salteada con nuestra salsa de tomate casera." },
                 "sangria-casera": { name: "Sangría Casera", details: ["Cava", "Vino tinto", "Vino blanco"] },
                 spritz: { name: "Spritz", details: ["Aperol", "Limoncello"] },
                 martini: { name: "Martini", details: ["Rojo", "Blanco"] },
+                "martini-bianco": {
+                    name: "Martini Bianco",
+                    description: "Martini Bianco servido frío con hielo y un toque fresco.",
+                    ingredients: ["Martini Bianco", "Hielo", "Aceituna o toque de limón"]
+                },
+                "martini-rosso": {
+                    name: "Martini Rosso",
+                    description: "Martini Rosso servido con hielo, naranja y un toque aromático.",
+                    ingredients: ["Martini Rosso", "Hielo", "Naranja", "Toque de especias o garnish"]
+                },
                 mojito: { name: "Mojito", details: ["Clásico", "Fresa", "Coco", "Piña", "Maracuyá"] },
+                margarita: {
+                    name: "Margarita",
+                    description: "Cóctel cítrico y fresco con tequila, licor de naranja y lima.",
+                    ingredients: ["Tequila", "Triple seco o licor de naranja", "Lima o limón", "Sal", "Hielo"]
+                },
                 "pina-colada": {
                     name: "Piña Colada",
-                    description: "Ron blanco, zumo de piña y leche de coco.",
-                    longDescription: "Cóctel tropical, cremoso y refrescante, preparado con ron blanco, zumo de piña y leche de coco.",
-                    ingredients: ["Ron blanco", "Zumo de piña", "Leche de coco"]
+                    description: "Ron blanco, piña, coco y crema de coco.",
+                    longDescription: "Cóctel tropical, cremoso y refrescante, preparado con ron blanco, piña, coco y zumo de piña.",
+                    ingredients: ["Ron blanco", "Piña", "Coco", "Crema de coco", "Zumo de piña", "Hielo"]
                 },
-                "espresso-martini": { name: "Espresso Martini", description: "Vodka, café, licor de café y sirope." },
-                negroni: { name: "Negroni", description: "Ginebra, vermut rojo dulce y Campari." },
+                "espresso-martini": {
+                    name: "Espresso Martini",
+                    description: "Vodka, café, licor de café y sirope.",
+                    ingredients: ["Vodka", "Café espresso", "Licor de café", "Sirope o azúcar", "Granos de café"]
+                },
+                negroni: {
+                    name: "Negroni",
+                    description: "Ginebra, vermut rojo dulce y Campari.",
+                    ingredients: ["Campari", "Martini Rosso", "Ginebra", "Naranja", "Hielo"]
+                },
                 "blanco-mondalon": { name: "Mondalón", description: "Gran Canaria · Albillo · Malvasía · Forastera Gomera · Seco." },
                 "blanco-yaiza": { name: "Yaiza", description: "Lanzarote · Malvasía volcánica · Seco o semidulce." },
                 "blanco-respiro": { name: "Respiro", description: "Lanzarote · Malvasía volcánica · Seco o semidulce." },
@@ -324,7 +376,11 @@
                 "uvas-y-quesos": { name: "Grapes and Cheeses Taste Like Kisses", description: "A selection of authentic Fuerteventura goat cheeses." },
                 croquetas: { name: "Croquettes", description: "According to the day’s selection." },
                 "langostinos-ajillo": { name: "Garlic Prawns", description: "A traditional Spanish garlic prawn dish with our own Raíces touch." },
-                "carpaccio-pulpo-local": { name: "Local Octopus Carpaccio with Canarian Touches", description: "Finely sliced local octopus, plated with Majorero pomegranate, potato slices and our Raíces touch." },
+                "carpaccio-pulpo-local": {
+                    name: "Local Octopus Carpaccio with Canarian Touches",
+                    description: "Finely sliced local octopus, plated with Majorero pomegranate, potato slices and our Raíces touch.",
+                    ingredients: ["Octopus", "Potato", "Rocket", "Canarian pomegranate", "Olive oil", "Lemon", "Paprika"]
+                },
                 "carpaccio-salmon": { name: "Raíces-Style Salmon Carpaccio", description: "Fresh salmon marinated in our house style." },
                 "jamon-iberico-bellota": { name: "Acorn-Fed Ibérico Ham", description: "100% acorn-fed · D.O.P. Dehesas de Extremadura." },
                 "roast-beef": { name: "Roast Beef", description: "Beef marinated in the chef’s style, oven-roasted, thinly sliced and served with rocket, capers, Parmesan flakes and extra virgin olive oil." },
@@ -332,33 +388,81 @@
                 "carpaccio-remolacha": { name: "Beetroot Carpaccio", description: "Finely sliced beetroot, fresh rocket, seasonal fruit and goat’s cheese log." },
                 "ensalada-cesar": { name: "Caesar Salad", description: "Lettuce salad with breaded chicken, our homemade Caesar sauce and grated Parmesan cheese." },
                 "ensalada-raices": { name: "Raíces Salad", description: "Mixed salad with fresh vegetables and fruit of the day." },
-                "parmigiana-melanzane": { name: "Parmigiana di Melanzane", description: "Fried aubergines finished in the oven with homemade tomato sauce, mozzarella and Parmesan cheese, scented with fresh basil." },
+                "parmigiana-melanzane": {
+                    name: "Parmigiana di Melanzane",
+                    description: "Fried aubergines finished in the oven with homemade tomato sauce, mozzarella and Parmesan cheese, scented with fresh basil.",
+                    ingredients: ["Aubergine", "Homemade tomato sauce", "Cheese", "Spices", "Basil"]
+                },
                 "pasta-marisco": { name: "Seafood Pasta", description: "Fresh Italian pasta sautéed with clams, baby squid, prawns and mussels, with our homemade tomato sauce." },
                 "pasta-salmon": { name: "Salmon Pasta", description: "Fresh Italian pasta sautéed with prawns, fresh salmon, touches of cheese and cream." },
                 "pescado-fresco-local": { name: "Fresh Local Fish", description: "Served with papas arrugadas and salad, with our homemade mojo picón.", details: ["Butterflied and grilled", "Fried", "Cleaned, without bones"] },
-                "fritura-mar": { name: "Seafood Fritura", description: "Fried squid, baby squid, prawns and king prawns, served with salad and homemade chips." },
+                "fritura-mar": {
+                    name: "Seafood Fritura",
+                    description: "Fried squid, baby squid, prawns and king prawns, served with salad and homemade chips.",
+                    ingredients: ["Prawns", "Baby squid", "Squid", "King prawn", "Chips", "Green salad", "Lemon"]
+                },
                 "salmon-naranja": { name: "Salmon with Orange", description: "Salmon loin with a natural orange juice reduction, served with homemade mashed potatoes." },
                 "pulpo-km0": { name: "Km 0 Octopus", description: "Local octopus wok-sautéed with cherry tomatoes and Canarian potato." },
                 "medallones-solomillo": { name: "Grilled Sirloin Medallions", description: "Grilled sirloin medallions served with vegetables and baked potatoes." },
-                "entrecot-raices": { name: "Raíces-Style Entrecôte", description: "Grilled entrecôte cut into strips, presented with rocket, Fuerteventura cherry tomatoes, balsamic cream and Fuerteventura goat cheese, served with chips." },
-                "cordero-miel-pistacho": { name: "Lamb with Honey and Pistachio", description: "Grilled lamb with honey and pistachio, served with potatoes and green salad." },
+                "entrecot-raices": {
+                    name: "Raíces-Style Entrecôte",
+                    description: "Grilled entrecôte cut into strips, presented with rocket, Fuerteventura cherry tomatoes, balsamic cream and Fuerteventura goat cheese, served with chips.",
+                    ingredients: ["Entrecôte", "Rocket", "Cherry tomato", "Fuerteventura goat cheese", "Balsamic sauce", "Chips", "Padrón peppers"]
+                },
+                "cordero-miel-pistacho": {
+                    name: "Lamb with Honey and Pistachio",
+                    description: "Grilled lamb with honey and pistachio, served with potatoes and green salad.",
+                    ingredients: ["Lamb", "Honey", "Pistachio", "Potatoes", "Green salad"]
+                },
                 "secreto-iberico": { name: "Ibérico Secreto", description: "A cut of Ibérico pork grilled and served with chips and seasonal vegetables." },
                 "tarta-queso": { name: "Cheesecake", description: "Creamy baked cheesecake with a biscuit base.", details: ["Red berries", "Caramel", "Chocolate"] },
-                "polvito-uruguayo": { name: "Polvito Uruguayo", description: "Traditional Canarian layered dessert with biscuits and meringues, served with our polvito uruguayo cream." },
+                tiramisu: {
+                    name: "Tiramisu",
+                    description: "Creamy Italian dessert with coffee, cocoa and a soft sponge base.",
+                    ingredients: ["Biscuit or sponge", "Coffee", "Pastry cream or mascarpone", "Cocoa powder", "Eggs", "Sugar"]
+                },
+                "polvito-uruguayo": {
+                    name: "Polvito Uruguayo",
+                    description: "Traditional Canarian layered dessert with biscuits and meringues, served with our polvito uruguayo cream.",
+                    ingredients: ["Biscuit", "Dulce de leche", "Cream", "Meringue", "Wafer rolls"]
+                },
                 "fingers-pollo": { name: "Chicken Fingers", description: "Fresh free-range chicken, breaded and served with chips." },
                 "pasta-tomate": { name: "Tomato Pasta", description: "Fresh Italian pasta sautéed with our homemade tomato sauce." },
                 "sangria-casera": { name: "Homemade Sangria", details: ["Cava", "Red wine", "White wine"] },
                 spritz: { name: "Spritz", details: ["Aperol", "Limoncello"] },
                 martini: { name: "Martini", details: ["Red", "White"] },
+                "martini-bianco": {
+                    name: "Martini Bianco",
+                    description: "Martini Bianco served cold with ice and a fresh touch.",
+                    ingredients: ["Martini Bianco", "Ice", "Olive or lemon twist"]
+                },
+                "martini-rosso": {
+                    name: "Martini Rosso",
+                    description: "Martini Rosso served with ice, orange and an aromatic touch.",
+                    ingredients: ["Martini Rosso", "Ice", "Orange", "Spice touch or garnish"]
+                },
                 mojito: { name: "Mojito", details: ["Classic", "Strawberry", "Coconut", "Pineapple", "Passion fruit"] },
+                margarita: {
+                    name: "Margarita",
+                    description: "A bright, citrusy cocktail with tequila, orange liqueur and lime.",
+                    ingredients: ["Tequila", "Triple sec or orange liqueur", "Lime or lemon", "Salt", "Ice"]
+                },
                 "pina-colada": {
                     name: "Piña Colada",
-                    description: "White rum, pineapple juice and coconut milk.",
-                    longDescription: "A tropical, creamy and refreshing cocktail made with white rum, pineapple juice and coconut milk.",
-                    ingredients: ["White rum", "Pineapple juice", "Coconut milk"]
+                    description: "White rum, pineapple, coconut and coconut cream.",
+                    longDescription: "A tropical, creamy and refreshing cocktail made with white rum, pineapple, coconut and pineapple juice.",
+                    ingredients: ["White rum", "Pineapple", "Coconut", "Coconut cream", "Pineapple juice", "Ice"]
                 },
-                "espresso-martini": { name: "Espresso Martini", description: "Vodka, coffee, coffee liqueur and syrup." },
-                negroni: { name: "Negroni", description: "Gin, sweet red vermouth and Campari." },
+                "espresso-martini": {
+                    name: "Espresso Martini",
+                    description: "Vodka, coffee, coffee liqueur and syrup.",
+                    ingredients: ["Vodka", "Espresso coffee", "Coffee liqueur", "Syrup or sugar", "Coffee beans"]
+                },
+                negroni: {
+                    name: "Negroni",
+                    description: "Gin, sweet red vermouth and Campari.",
+                    ingredients: ["Campari", "Martini Rosso", "Gin", "Orange", "Ice"]
+                },
                 "blanco-mondalon": { name: "Mondalón", description: "Gran Canaria · Albillo · Malvasía · Forastera Gomera · Dry." },
                 "blanco-yaiza": { name: "Yaiza", description: "Lanzarote · Malvasía volcánica · Dry or semi-sweet." },
                 "blanco-respiro": { name: "Respiro", description: "Lanzarote · Malvasía volcánica · Dry or semi-sweet." },
@@ -515,7 +619,11 @@
                 "uvas-y-quesos": { name: "Trauben und Käse schmecken wie Küsse", description: "Eine Auswahl echter Ziegenkäse aus Fuerteventura." },
                 croquetas: { name: "Kroketten", description: "Je nach Tagesauswahl." },
                 "langostinos-ajillo": { name: "Garnelen in Knoblauchöl", description: "Ein traditionelles spanisches Gericht mit Garnelen in Knoblauchöl und unserer eigenen Raíces-Note." },
-                "carpaccio-pulpo-local": { name: "Carpaccio vom lokalen Oktopus mit kanarischen Akzenten", description: "Fein geschnittener lokaler Oktopus, angerichtet mit Majorero-Granatapfel, Kartoffelscheiben und unserer Raíces-Note." },
+                "carpaccio-pulpo-local": {
+                    name: "Carpaccio vom lokalen Oktopus mit kanarischen Akzenten",
+                    description: "Fein geschnittener lokaler Oktopus, angerichtet mit Majorero-Granatapfel, Kartoffelscheiben und unserer Raíces-Note.",
+                    ingredients: ["Oktopus", "Kartoffel", "Rucola", "Kanarischer Granatapfel", "Olivenöl", "Zitrone", "Paprikapulver"]
+                },
                 "carpaccio-salmon": { name: "Lachs-Carpaccio nach Raíces-Art", description: "Frischer Lachs, nach Art des Hauses mariniert." },
                 "jamon-iberico-bellota": { name: "Jamón Ibérico de Bellota", description: "100 % Eichelmast · D.O.P. Dehesas de Extremadura." },
                 "roast-beef": { name: "Roast Beef", description: "Rindfleisch nach Art des Küchenchefs mariniert, im Ofen gegart, dünn aufgeschnitten und mit Rucola, Kapern, Parmesanspänen und nativem Olivenöl extra serviert." },
@@ -523,33 +631,81 @@
                 "carpaccio-remolacha": { name: "Rote-Bete-Carpaccio", description: "Fein geschnittene Rote Bete, frischer Rucola, saisonales Obst und Ziegenkäserolle." },
                 "ensalada-cesar": { name: "Caesar Salad", description: "Salat mit Blattsalat, paniertem Hähnchen, unserer hausgemachten Caesar-Sauce und geriebenem Parmesan." },
                 "ensalada-raices": { name: "Raíces-Salat", description: "Gemischter Salat mit frischem Gemüse und Obst des Tages." },
-                "parmigiana-melanzane": { name: "Parmigiana di Melanzane", description: "Frittierte Auberginen, im Ofen mit hausgemachter Tomatensauce, Mozzarella und Parmesan vollendet und mit frischem Basilikum aromatisiert." },
+                "parmigiana-melanzane": {
+                    name: "Parmigiana di Melanzane",
+                    description: "Frittierte Auberginen, im Ofen mit hausgemachter Tomatensauce, Mozzarella und Parmesan vollendet und mit frischem Basilikum aromatisiert.",
+                    ingredients: ["Aubergine", "Hausgemachte Tomatensauce", "Käse", "Gewürze", "Basilikum"]
+                },
                 "pasta-marisco": { name: "Pasta mit Meeresfrüchten", description: "Frische italienische Pasta, sautiert mit Venusmuscheln, Baby-Calamari, Garnelen und Miesmuscheln, mit unserer hausgemachten Tomatensauce." },
                 "pasta-salmon": { name: "Pasta mit Lachs", description: "Frische italienische Pasta, sautiert mit Garnelen, frischem Lachs, einem Hauch Käse und Sahne." },
                 "pescado-fresco-local": { name: "Frischer lokaler Fisch", description: "Serviert mit papas arrugadas und Salat, dazu unser hausgemachter mojo picón.", details: ["Aufgeschnitten und gegrillt", "Frittiert", "Gesäubert, ohne Gräten"] },
-                "fritura-mar": { name: "Fritura aus dem Meer", description: "Frittierte Calamari, Baby-Calamari, Garnelen und Riesengarnelen, serviert mit Salat und hausgemachten Pommes." },
+                "fritura-mar": {
+                    name: "Fritura aus dem Meer",
+                    description: "Frittierte Calamari, Baby-Calamari, Garnelen und Riesengarnelen, serviert mit Salat und hausgemachten Pommes.",
+                    ingredients: ["Garnelen", "Baby-Calamari", "Calamari", "Riesengarnele", "Pommes", "Grüner Salat", "Zitrone"]
+                },
                 "salmon-naranja": { name: "Lachs mit Orange", description: "Lachsfilet mit Reduktion aus natürlichem Orangensaft, serviert mit hausgemachtem Kartoffelpüree." },
                 "pulpo-km0": { name: "Oktopus Km 0", description: "Lokaler Oktopus aus dem Wok mit Kirschtomaten und kanarischer Kartoffel." },
                 "medallones-solomillo": { name: "Gegrillte Filetmedaillons", description: "Gegrillte Filetmedaillons, serviert mit Gemüse und Ofenkartoffeln." },
-                "entrecot-raices": { name: "Entrecôte nach Raíces-Art", description: "Gegrilltes Entrecôte in Streifen, präsentiert mit Rucola, Kirschtomaten aus Fuerteventura, Balsamico-Creme und Ziegenkäse aus Fuerteventura, serviert mit Pommes." },
-                "cordero-miel-pistacho": { name: "Lamm mit Honig und Pistazie", description: "Gegrilltes Lamm mit Honig und Pistazie, serviert mit Kartoffeln und grünem Salat." },
+                "entrecot-raices": {
+                    name: "Entrecôte nach Raíces-Art",
+                    description: "Gegrilltes Entrecôte in Streifen, präsentiert mit Rucola, Kirschtomaten aus Fuerteventura, Balsamico-Creme und Ziegenkäse aus Fuerteventura, serviert mit Pommes.",
+                    ingredients: ["Entrecôte", "Rucola", "Kirschtomate", "Ziegenkäse", "Balsamicosauce", "Pommes", "Pimientos de Padrón"]
+                },
+                "cordero-miel-pistacho": {
+                    name: "Lamm mit Honig und Pistazie",
+                    description: "Gegrilltes Lamm mit Honig und Pistazie, serviert mit Kartoffeln und grünem Salat.",
+                    ingredients: ["Lamm", "Honig", "Pistazie", "Kartoffeln", "Grüner Salat"]
+                },
                 "secreto-iberico": { name: "Secreto Ibérico", description: "Ein Stück vom Ibérico-Schwein, gegrillt und mit Pommes sowie saisonalem Gemüse serviert." },
                 "tarta-queso": { name: "Käsekuchen", description: "Cremiger gebackener Käsekuchen mit Keksboden.", details: ["Rote Früchte", "Karamell", "Schokolade"] },
-                "polvito-uruguayo": { name: "Polvito Uruguayo", description: "Traditionelles kanarisches Schichtdessert mit Keksen und Baiser, mit unserer Polvito-Uruguayo-Creme." },
+                tiramisu: {
+                    name: "Tiramisu",
+                    description: "Cremiges italienisches Dessert mit Kaffee, Kakao und weichem Biskuitboden.",
+                    ingredients: ["Keks oder Biskuit", "Kaffee", "Konditorcreme oder Mascarpone", "Kakaopulver", "Eier", "Zucker"]
+                },
+                "polvito-uruguayo": {
+                    name: "Polvito Uruguayo",
+                    description: "Traditionelles kanarisches Schichtdessert mit Keksen und Baiser, mit unserer Polvito-Uruguayo-Creme.",
+                    ingredients: ["Keks", "Dulce de leche", "Sahne", "Baiser", "Waffelröllchen"]
+                },
                 "fingers-pollo": { name: "Chicken Fingers", description: "Frisches Freilandhähnchen, paniert und mit Pommes serviert." },
                 "pasta-tomate": { name: "Pasta mit Tomatensauce", description: "Frische italienische Pasta, sautiert mit unserer hausgemachten Tomatensauce." },
                 "sangria-casera": { name: "Hausgemachte Sangría", details: ["Cava", "Rotwein", "Weißwein"] },
                 spritz: { name: "Spritz", details: ["Aperol", "Limoncello"] },
                 martini: { name: "Martini", details: ["Rot", "Weiß"] },
+                "martini-bianco": {
+                    name: "Martini Bianco",
+                    description: "Martini Bianco kalt mit Eis und einer frischen Note serviert.",
+                    ingredients: ["Martini Bianco", "Eis", "Olive oder Zitronentwist"]
+                },
+                "martini-rosso": {
+                    name: "Martini Rosso",
+                    description: "Martini Rosso mit Eis, Orange und einer aromatischen Note serviert.",
+                    ingredients: ["Martini Rosso", "Eis", "Orange", "Gewürznote oder Garnitur"]
+                },
                 mojito: { name: "Mojito", details: ["Klassisch", "Erdbeere", "Kokos", "Ananas", "Maracuja"] },
+                margarita: {
+                    name: "Margarita",
+                    description: "Ein frischer Zitrus-Cocktail mit Tequila, Orangenlikör und Limette.",
+                    ingredients: ["Tequila", "Triple Sec oder Orangenlikör", "Limette oder Zitrone", "Salz", "Eis"]
+                },
                 "pina-colada": {
                     name: "Piña Colada",
-                    description: "Weißer Rum, Ananassaft und Kokosmilch.",
-                    longDescription: "Ein tropischer, cremiger und erfrischender Cocktail mit weißem Rum, Ananassaft und Kokosmilch.",
-                    ingredients: ["Weißer Rum", "Ananassaft", "Kokosmilch"]
+                    description: "Weißer Rum, Ananas, Kokos und Kokoscreme.",
+                    longDescription: "Ein tropischer, cremiger und erfrischender Cocktail mit weißem Rum, Ananas, Kokos und Ananassaft.",
+                    ingredients: ["Weißer Rum", "Ananas", "Kokos", "Kokoscreme", "Ananassaft", "Eis"]
                 },
-                "espresso-martini": { name: "Espresso Martini", description: "Wodka, Kaffee, Kaffeelikör und Sirup." },
-                negroni: { name: "Negroni", description: "Gin, süßer roter Wermut und Campari." },
+                "espresso-martini": {
+                    name: "Espresso Martini",
+                    description: "Wodka, Kaffee, Kaffeelikör und Sirup.",
+                    ingredients: ["Wodka", "Espresso", "Kaffeelikör", "Sirup oder Zucker", "Kaffeebohnen"]
+                },
+                negroni: {
+                    name: "Negroni",
+                    description: "Gin, süßer roter Wermut und Campari.",
+                    ingredients: ["Campari", "Martini Rosso", "Gin", "Orange", "Eis"]
+                },
                 "blanco-mondalon": { name: "Mondalón", description: "Gran Canaria · Albillo · Malvasía · Forastera Gomera · Trocken." },
                 "blanco-yaiza": { name: "Yaiza", description: "Lanzarote · Malvasía volcánica · Trocken oder halbsüß." },
                 "blanco-respiro": { name: "Respiro", description: "Lanzarote · Malvasía volcánica · Trocken oder halbsüß." },
@@ -706,7 +862,11 @@
                 "uvas-y-quesos": { name: "Uva e formaggi sanno di baci", description: "Selezione di autentici formaggi di capra di Fuerteventura." },
                 croquetas: { name: "Crocchette", description: "Secondo la selezione del giorno." },
                 "langostinos-ajillo": { name: "Gamberoni all’aglio", description: "Piatto tradizionale spagnolo di gamberoni all’aglio con il nostro tocco Raíces." },
-                "carpaccio-pulpo-local": { name: "Carpaccio di polpo locale con tocchi canari", description: "Polpo locale tagliato finemente, impiattato con melograno majorero, lamelle di patate e il nostro tocco Raíces." },
+                "carpaccio-pulpo-local": {
+                    name: "Carpaccio di polpo locale con tocchi canari",
+                    description: "Polpo locale tagliato finemente, impiattato con melograno majorero, lamelle di patate e il nostro tocco Raíces.",
+                    ingredients: ["Polpo", "Patata", "Rucola", "Melograno canario", "Olio d’oliva", "Limone", "Paprika in polvere"]
+                },
                 "carpaccio-salmon": { name: "Carpaccio di salmone stile Raíces", description: "Salmone fresco marinato secondo lo stile della casa." },
                 "jamon-iberico-bellota": { name: "Jamón Ibérico de Bellota", description: "Bellota 100% · D.O.P. Dehesas de Extremadura." },
                 "roast-beef": { name: "Roast Beef", description: "Manzo marinato secondo lo stile dello chef, cotto al forno, tagliato a fette sottili e accompagnato da rucola, capperi, scaglie di parmigiano e olio extravergine d’oliva." },
@@ -714,33 +874,81 @@
                 "carpaccio-remolacha": { name: "Carpaccio di barbabietola", description: "Barbabietola tagliata finemente, rucola fresca, frutta di stagione e formaggio caprino a tronchetto." },
                 "ensalada-cesar": { name: "Insalata Caesar", description: "Insalata di lattuga, pollo impanato, la nostra salsa Caesar fatta in casa e parmigiano grattugiato." },
                 "ensalada-raices": { name: "Insalata Raíces", description: "Insalata mista con verdure fresche e frutta del giorno." },
-                "parmigiana-melanzane": { name: "Parmigiana di Melanzane", description: "Melanzane fritte finite al forno con salsa di pomodoro fatta in casa, mozzarella e parmigiano, profumate con basilico fresco." },
+                "parmigiana-melanzane": {
+                    name: "Parmigiana di Melanzane",
+                    description: "Melanzane fritte finite al forno con salsa di pomodoro fatta in casa, mozzarella e parmigiano, profumate con basilico fresco.",
+                    ingredients: ["Melanzana", "Salsa di pomodoro fatta in casa", "Formaggio", "Spezie", "Basilico"]
+                },
                 "pasta-marisco": { name: "Pasta ai frutti di mare", description: "Pasta fresca italiana saltata con vongole, calamaretti, gamberi e cozze, con la nostra salsa di pomodoro fatta in casa." },
                 "pasta-salmon": { name: "Pasta al salmone", description: "Pasta fresca italiana saltata con gamberi, salmone fresco, tocchi di formaggio e panna." },
                 "pescado-fresco-local": { name: "Pesce fresco locale", description: "Accompagnato da papas arrugadas e insalata, con il nostro mojo picón fatto in casa.", details: ["Aperto alla griglia", "Fritto", "Pulito senza spine"] },
-                "fritura-mar": { name: "Frittura di mare", description: "Calamari, calamaretti, gamberi e gamberoni fritti, serviti con insalata e patate fritte fatte in casa." },
+                "fritura-mar": {
+                    name: "Frittura di mare",
+                    description: "Calamari, calamaretti, gamberi e gamberoni fritti, serviti con insalata e patate fritte fatte in casa.",
+                    ingredients: ["Gamberi", "Calamaretti", "Calamaro", "Gamberone", "Patate fritte", "Insalata verde", "Limone"]
+                },
                 "salmon-naranja": { name: "Salmone all’arancia", description: "Trancio di salmone con riduzione di succo d’arancia naturale, con purè di patate fatto in casa." },
                 "pulpo-km0": { name: "Polpo Km 0", description: "Polpo locale saltato al wok con pomodorini e patata canaria." },
                 "medallones-solomillo": { name: "Medaglioni di filetto alla griglia", description: "Medaglioni di filetto alla griglia, accompagnati da verdure e patate al forno." },
-                "entrecot-raices": { name: "Entrecôte stile Raíces", description: "Entrecôte alla griglia tagliata a strisce, presentata con rucola, pomodorini di Fuerteventura, crema balsamica e formaggio di capra di Fuerteventura, accompagnata da patate fritte." },
-                "cordero-miel-pistacho": { name: "Agnello con miele e pistacchio", description: "Agnello con miele e pistacchio cotto alla griglia, accompagnato da patate e insalata verde." },
+                "entrecot-raices": {
+                    name: "Entrecôte stile Raíces",
+                    description: "Entrecôte alla griglia tagliata a strisce, presentata con rucola, pomodorini di Fuerteventura, crema balsamica e formaggio di capra di Fuerteventura, accompagnata da patate fritte.",
+                    ingredients: ["Entrecôte", "Rucola", "Pomodoro ciliegino", "Formaggio di capra", "Salsa balsamica", "Patate fritte", "Peperoni di Padrón"]
+                },
+                "cordero-miel-pistacho": {
+                    name: "Agnello con miele e pistacchio",
+                    description: "Agnello con miele e pistacchio cotto alla griglia, accompagnato da patate e insalata verde.",
+                    ingredients: ["Agnello", "Miele", "Pistacchio", "Patate", "Insalata verde"]
+                },
                 "secreto-iberico": { name: "Secreto Ibérico", description: "Taglio di maiale iberico alla griglia, servito con patate fritte e verdure di stagione." },
                 "tarta-queso": { name: "Cheesecake", description: "Cremosa torta al formaggio cotta al forno con base di biscotto.", details: ["Frutti rossi", "Caramello", "Cioccolato"] },
-                "polvito-uruguayo": { name: "Polvito Uruguayo", description: "Dolce tradizionale canario a strati con biscotti e meringhe, con la nostra crema di polvito uruguayo." },
+                tiramisu: {
+                    name: "Tiramisù",
+                    description: "Dessert italiano cremoso con caffè, cacao e una base morbida di biscotto.",
+                    ingredients: ["Biscotto o pan di Spagna", "Caffè", "Crema pasticcera o mascarpone", "Cacao in polvere", "Uova", "Zucchero"]
+                },
+                "polvito-uruguayo": {
+                    name: "Polvito Uruguayo",
+                    description: "Dolce tradizionale canario a strati con biscotti e meringhe, con la nostra crema di polvito uruguayo.",
+                    ingredients: ["Biscotto", "Dulce de leche", "Panna", "Meringa", "Wafer"]
+                },
                 "fingers-pollo": { name: "Chicken Fingers", description: "Pollo ruspante fresco, impanato e accompagnato da patate fritte." },
                 "pasta-tomate": { name: "Pasta al pomodoro", description: "Pasta fresca italiana saltata con la nostra salsa di pomodoro fatta in casa." },
                 "sangria-casera": { name: "Sangria fatta in casa", details: ["Cava", "Vino rosso", "Vino bianco"] },
                 spritz: { name: "Spritz", details: ["Aperol", "Limoncello"] },
                 martini: { name: "Martini", details: ["Rosso", "Bianco"] },
+                "martini-bianco": {
+                    name: "Martini Bianco",
+                    description: "Martini Bianco servito freddo con ghiaccio e un tocco fresco.",
+                    ingredients: ["Martini Bianco", "Ghiaccio", "Oliva o scorza di limone"]
+                },
+                "martini-rosso": {
+                    name: "Martini Rosso",
+                    description: "Martini Rosso servito con ghiaccio, arancia e un tocco aromatico.",
+                    ingredients: ["Martini Rosso", "Ghiaccio", "Arancia", "Tocco di spezie o garnish"]
+                },
                 mojito: { name: "Mojito", details: ["Classico", "Fragola", "Cocco", "Ananas", "Maracuyá"] },
+                margarita: {
+                    name: "Margarita",
+                    description: "Cocktail fresco e agrumato con tequila, liquore all’arancia e lime.",
+                    ingredients: ["Tequila", "Triple sec o liquore all’arancia", "Lime o limone", "Sale", "Ghiaccio"]
+                },
                 "pina-colada": {
                     name: "Piña Colada",
-                    description: "Rum bianco, succo d’ananas e latte di cocco.",
-                    longDescription: "Un cocktail tropicale, cremoso e rinfrescante, preparato con rum bianco, succo d’ananas e latte di cocco.",
-                    ingredients: ["Rum bianco", "Succo d’ananas", "Latte di cocco"]
+                    description: "Rum bianco, ananas, cocco e crema di cocco.",
+                    longDescription: "Un cocktail tropicale, cremoso e rinfrescante, preparato con rum bianco, ananas, cocco e succo d’ananas.",
+                    ingredients: ["Rum bianco", "Ananas", "Cocco", "Crema di cocco", "Succo d’ananas", "Ghiaccio"]
                 },
-                "espresso-martini": { name: "Espresso Martini", description: "Vodka, caffè, liquore al caffè e sciroppo." },
-                negroni: { name: "Negroni", description: "Gin, vermut rosso dolce e Campari." },
+                "espresso-martini": {
+                    name: "Espresso Martini",
+                    description: "Vodka, caffè, liquore al caffè e sciroppo.",
+                    ingredients: ["Vodka", "Caffè espresso", "Liquore al caffè", "Sciroppo o zucchero", "Chicchi di caffè"]
+                },
+                negroni: {
+                    name: "Negroni",
+                    description: "Gin, vermut rosso dolce e Campari.",
+                    ingredients: ["Campari", "Martini Rosso", "Gin", "Arancia", "Ghiaccio"]
+                },
                 "blanco-mondalon": { name: "Mondalón", description: "Gran Canaria · Albillo · Malvasía · Forastera Gomera · Secco." },
                 "blanco-yaiza": { name: "Yaiza", description: "Lanzarote · Malvasía volcánica · Secco o semidolce." },
                 "blanco-respiro": { name: "Respiro", description: "Lanzarote · Malvasía volcánica · Secco o semidolce." },
@@ -897,7 +1105,11 @@
                 "uvas-y-quesos": { name: "Raisins et fromages ont un goût de baisers", description: "Sélection d’authentiques fromages de chèvre de Fuerteventura." },
                 croquetas: { name: "Croquettes", description: "Selon la sélection du jour." },
                 "langostinos-ajillo": { name: "Gambas à l’ail", description: "Plat espagnol traditionnel de gambas à l’ail avec notre touche Raíces." },
-                "carpaccio-pulpo-local": { name: "Carpaccio de poulpe local aux touches canariennes", description: "Poulpe local finement tranché, dressé avec grenade majorera, lamelles de pommes de terre et notre touche Raíces." },
+                "carpaccio-pulpo-local": {
+                    name: "Carpaccio de poulpe local aux touches canariennes",
+                    description: "Poulpe local finement tranché, dressé avec grenade majorera, lamelles de pommes de terre et notre touche Raíces.",
+                    ingredients: ["Poulpe", "Pomme de terre", "Roquette", "Grenade canarienne", "Huile d’olive", "Citron", "Paprika en poudre"]
+                },
                 "carpaccio-salmon": { name: "Carpaccio de saumon façon Raíces", description: "Saumon frais mariné selon le style de la maison." },
                 "jamon-iberico-bellota": { name: "Jambon Ibérique de Bellota", description: "Bellota 100 % · D.O.P. Dehesas de Extremadura." },
                 "roast-beef": { name: "Roast Beef", description: "Bœuf mariné à la façon du chef, cuit au four, tranché finement et accompagné de roquette, câpres, copeaux de parmesan et huile d’olive vierge extra." },
@@ -905,33 +1117,81 @@
                 "carpaccio-remolacha": { name: "Carpaccio de betterave", description: "Betterave finement tranchée, roquette fraîche, fruit de saison et fromage de chèvre en bûche." },
                 "ensalada-cesar": { name: "Salade César", description: "Salade de laitue, poulet pané, notre sauce César maison et parmesan râpé." },
                 "ensalada-raices": { name: "Salade Raíces", description: "Salade composée avec légumes frais et fruits du jour." },
-                "parmigiana-melanzane": { name: "Parmigiana di Melanzane", description: "Aubergines frites terminées au four avec sauce tomate maison, mozzarella et parmesan, parfumées au basilic frais." },
+                "parmigiana-melanzane": {
+                    name: "Parmigiana di Melanzane",
+                    description: "Aubergines frites terminées au four avec sauce tomate maison, mozzarella et parmesan, parfumées au basilic frais.",
+                    ingredients: ["Aubergine", "Sauce tomate maison", "Fromage", "Épices", "Basilic"]
+                },
                 "pasta-marisco": { name: "Pâtes aux fruits de mer", description: "Pâtes fraîches italiennes sautées avec palourdes, petits calamars, gambas et moules, avec notre sauce tomate maison." },
                 "pasta-salmon": { name: "Pâtes au saumon", description: "Pâtes fraîches italiennes sautées avec gambas, saumon frais, touches de fromage et crème." },
                 "pescado-fresco-local": { name: "Poisson frais local", description: "Accompagné de papas arrugadas et salade, avec notre mojo picón maison.", details: ["Ouvert et grillé", "Frit", "Nettoyé sans arêtes"] },
-                "fritura-mar": { name: "Friture de mer", description: "Calamars, petits calamars, gambas et grosses crevettes frits, servis avec salade et frites maison." },
+                "fritura-mar": {
+                    name: "Friture de mer",
+                    description: "Calamars, petits calamars, gambas et grosses crevettes frits, servis avec salade et frites maison.",
+                    ingredients: ["Gambas", "Petits calamars", "Calamar", "Grosse crevette", "Frites", "Salade verte", "Citron"]
+                },
                 "salmon-naranja": { name: "Saumon à l’orange", description: "Pavé de saumon avec réduction de jus d’orange naturel, servi avec purée de pommes de terre maison." },
                 "pulpo-km0": { name: "Poulpe Km 0", description: "Poulpe local sauté au wok avec tomates cerises et pomme de terre canarienne." },
                 "medallones-solomillo": { name: "Médaillons de filet grillés", description: "Médaillons de filet grillés, accompagnés de légumes et pommes de terre au four." },
-                "entrecot-raices": { name: "Entrecôte façon Raíces", description: "Entrecôte grillée coupée en lanières, présentée avec roquette, tomates cerises de Fuerteventura, crème balsamique et fromage de chèvre de Fuerteventura, accompagnée de frites." },
-                "cordero-miel-pistacho": { name: "Agneau au miel et à la pistache", description: "Agneau au miel et à la pistache grillé, accompagné de pommes de terre et salade verte." },
+                "entrecot-raices": {
+                    name: "Entrecôte façon Raíces",
+                    description: "Entrecôte grillée coupée en lanières, présentée avec roquette, tomates cerises de Fuerteventura, crème balsamique et fromage de chèvre de Fuerteventura, accompagnée de frites.",
+                    ingredients: ["Entrecôte", "Roquette", "Tomate cerise", "Fromage de chèvre", "Sauce balsamique", "Frites", "Piments de Padrón"]
+                },
+                "cordero-miel-pistacho": {
+                    name: "Agneau au miel et à la pistache",
+                    description: "Agneau au miel et à la pistache grillé, accompagné de pommes de terre et salade verte.",
+                    ingredients: ["Agneau", "Miel", "Pistache", "Pommes de terre", "Salade verte"]
+                },
                 "secreto-iberico": { name: "Secreto Ibérico", description: "Morceau de porc ibérique grillé, servi avec frites et légumes de saison." },
                 "tarta-queso": { name: "Cheesecake", description: "Gâteau au fromage crémeux cuit au four avec base biscuitée.", details: ["Fruits rouges", "Caramel", "Chocolat"] },
-                "polvito-uruguayo": { name: "Polvito Uruguayo", description: "Dessert traditionnel canarien en couches de biscuits et meringues, avec notre crème de polvito uruguayo." },
+                tiramisu: {
+                    name: "Tiramisu",
+                    description: "Dessert italien crémeux au café, cacao et base moelleuse de biscuit.",
+                    ingredients: ["Biscuit ou génoise", "Café", "Crème pâtissière ou mascarpone", "Cacao en poudre", "Œufs", "Sucre"]
+                },
+                "polvito-uruguayo": {
+                    name: "Polvito Uruguayo",
+                    description: "Dessert traditionnel canarien en couches de biscuits et meringues, avec notre crème de polvito uruguayo.",
+                    ingredients: ["Biscuit", "Dulce de leche", "Crème", "Meringue", "Gaufrettes"]
+                },
                 "fingers-pollo": { name: "Chicken Fingers", description: "Poulet fermier frais, pané et accompagné de frites." },
                 "pasta-tomate": { name: "Pâtes à la tomate", description: "Pâtes fraîches italiennes sautées avec notre sauce tomate maison." },
                 "sangria-casera": { name: "Sangria maison", details: ["Cava", "Vin rouge", "Vin blanc"] },
                 spritz: { name: "Spritz", details: ["Aperol", "Limoncello"] },
                 martini: { name: "Martini", details: ["Rouge", "Blanc"] },
+                "martini-bianco": {
+                    name: "Martini Bianco",
+                    description: "Martini Bianco servi frais avec glace et une note fraîche.",
+                    ingredients: ["Martini Bianco", "Glace", "Olive ou zeste de citron"]
+                },
+                "martini-rosso": {
+                    name: "Martini Rosso",
+                    description: "Martini Rosso servi avec glace, orange et une touche aromatique.",
+                    ingredients: ["Martini Rosso", "Glace", "Orange", "Touche d’épices ou garniture"]
+                },
                 mojito: { name: "Mojito", details: ["Classique", "Fraise", "Coco", "Ananas", "Fruit de la passion"] },
+                margarita: {
+                    name: "Margarita",
+                    description: "Cocktail frais et citronné avec tequila, liqueur d’orange et citron vert.",
+                    ingredients: ["Tequila", "Triple sec ou liqueur d’orange", "Citron vert ou citron", "Sel", "Glace"]
+                },
                 "pina-colada": {
                     name: "Piña Colada",
-                    description: "Rhum blanc, jus d’ananas et lait de coco.",
-                    longDescription: "Un cocktail tropical, crémeux et rafraîchissant, préparé avec du rhum blanc, du jus d’ananas et du lait de coco.",
-                    ingredients: ["Rhum blanc", "Jus d’ananas", "Lait de coco"]
+                    description: "Rhum blanc, ananas, coco et crème de coco.",
+                    longDescription: "Un cocktail tropical, crémeux et rafraîchissant, préparé avec du rhum blanc, de l’ananas, de la coco et du jus d’ananas.",
+                    ingredients: ["Rhum blanc", "Ananas", "Coco", "Crème de coco", "Jus d’ananas", "Glace"]
                 },
-                "espresso-martini": { name: "Espresso Martini", description: "Vodka, café, liqueur de café et sirop." },
-                negroni: { name: "Negroni", description: "Gin, vermouth rouge doux et Campari." },
+                "espresso-martini": {
+                    name: "Espresso Martini",
+                    description: "Vodka, café, liqueur de café et sirop.",
+                    ingredients: ["Vodka", "Café espresso", "Liqueur de café", "Sirop ou sucre", "Grains de café"]
+                },
+                negroni: {
+                    name: "Negroni",
+                    description: "Gin, vermouth rouge doux et Campari.",
+                    ingredients: ["Campari", "Martini Rosso", "Gin", "Orange", "Glace"]
+                },
                 "blanco-mondalon": { name: "Mondalón", description: "Gran Canaria · Albillo · Malvasía · Forastera Gomera · Sec." },
                 "blanco-yaiza": { name: "Yaiza", description: "Lanzarote · Malvasía volcánica · Sec ou demi-doux." },
                 "blanco-respiro": { name: "Respiro", description: "Lanzarote · Malvasía volcánica · Sec ou demi-doux." },
