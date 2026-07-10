@@ -104,7 +104,7 @@
                     id: "cordero-miel-pistacho",
                     price: "24,00 €",
                     interactive: true,
-                    image: "assets/img/platos/cordero-miel-pistacho.jpg",
+                    image: "assets/img/platos/cordero-miel-pistacho.png?v=12",
                     ingredients: true
                 }),
                 product({ id: "secreto-iberico", price: "23,00 €" })
