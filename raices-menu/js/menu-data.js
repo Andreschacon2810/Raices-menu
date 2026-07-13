@@ -136,14 +136,13 @@
             noteKey: "sectionNotes.del-mar.text",
             items: [
                 product({
-                    id: "pescado-fresco-local",
-                    priceKey: "interface.bySelectionWeight",
-                    details: true,
+                    id: "salmon-naranja",
+                    price: "24,00 €",
                     interactive: true,
-                    fishCatalog: true,
-                    buttonLabelKey: "interface.viewFish",
-                    modalEyebrowKey: "interface.freshFish"
+                    image: "assets/img/platos/salmon-naranja.png",
+                    ingredients: true
                 }),
+                product({ id: "pulpo-km0", price: "24,00 €" }),
                 product({
                     id: "fritura-mar",
                     price: "22,00 €",
@@ -152,13 +151,14 @@
                     ingredients: true
                 }),
                 product({
-                    id: "salmon-naranja",
-                    price: "24,00 €",
+                    id: "pescado-fresco-local",
+                    priceKey: "interface.bySelectionWeight",
+                    details: true,
                     interactive: true,
-                    image: "assets/img/platos/salmon-naranja.png",
-                    ingredients: true
-                }),
-                product({ id: "pulpo-km0", price: "24,00 €" })
+                    fishCatalog: true,
+                    buttonLabelKey: "interface.viewFish",
+                    modalEyebrowKey: "interface.freshFish"
+                })
             ]
         },
         {
