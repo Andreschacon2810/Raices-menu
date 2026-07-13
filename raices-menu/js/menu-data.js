@@ -137,7 +137,13 @@
                     ingredients: true
                 }),
                 product({ id: "vitello-tonnato", price: "16,00 €" }),
-                product({ id: "carpaccio-remolacha", price: "13,00 €" })
+                product({
+                    id: "carpaccio-remolacha",
+                    price: "13,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/carpaccio-remolacha.png",
+                    ingredients: true
+                })
             ]
         },
         {

@@ -192,7 +192,11 @@
                     ingredients: ["Ternera", "Rúcula", "Alcaparras", "Parmesano", "AOVE"]
                 },
                 "vitello-tonnato": { name: "Vitello Tonnato", description: "Carne de ternera cocida, servida en frío y cubierta con nuestra cremosa salsa a base de atún, mayonesa, anchoas, alcaparras y más." },
-                "carpaccio-remolacha": { name: "Carpaccio de Remolacha", description: "Remolacha finamente cortada, rúcula fresca, fruta de temporada y queso rulo de cabra." },
+                "carpaccio-remolacha": {
+                    name: "Carpaccio de Remolacha",
+                    description: "Remolacha finamente cortada, rúcula fresca, fruta de temporada y queso rulo de cabra.",
+                    ingredients: ["Remolacha", "Rúcula", "Fruta de temporada", "Queso rulo de cabra"]
+                },
                 "ensalada-cesar": { name: "Ensalada César", description: "Ensalada de lechuga, pollo empanado, nuestra salsa César casera y queso parmesano rallado." },
                 "ensalada-raices": { name: "Ensalada Raíces", description: "Ensalada mixta con verduras frescas y frutas del día." },
                 "parmigiana-melanzane": {

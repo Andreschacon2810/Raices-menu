@@ -1,4 +1,4 @@
-const CACHE_NAME = "raices-menu-v17";
+const CACHE_NAME = "raices-menu-v18";
 
 const CORE_ASSETS = [
     "./",
@@ -25,12 +25,15 @@ const CORE_ASSETS = [
     "./assets/img/platos/placeholder-plato.svg",
     "./assets/img/platos/carpaccio-pulpo.png",
     "./assets/img/platos/bocinegro.png",
+    "./assets/img/platos/bocinegro-plato.png",
+    "./assets/img/platos/carpaccio-remolacha.png",
     "./assets/img/platos/cordero-miel-pistacho.png",
     "./assets/img/platos/croquetas.png",
     "./assets/img/platos/entrecot-raices.png",
     "./assets/img/platos/espresso-martini.png",
     "./assets/img/platos/fritura-mixta.png",
     "./assets/img/platos/fula.png",
+    "./assets/img/platos/fula-plato.png",
     "./assets/img/platos/jurel.png",
     "./assets/img/platos/margarita.png",
     "./assets/img/platos/martini-bianco.png",
@@ -48,6 +51,8 @@ const CORE_ASSETS = [
     "./assets/img/platos/secreto-iberico.png",
     "./assets/img/platos/tiramisu.png",
     "./assets/img/platos/medregal.png",
+    "./assets/img/platos/medregal-plato.png",
+    "./assets/img/platos/dorada-plato.png",
     "./assets/img/platos/vieja.png",
     "./assets/img/platos/dorada.png",
     "./assets/icons/icon-192.png",
