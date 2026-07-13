@@ -14,6 +14,7 @@
     const storyToggle = document.querySelector(".story__toggle");
     const reservationForm = document.querySelector("#reservationForm");
     const reservationStatus = document.querySelector("#reservationStatus");
+    const reservationDate = document.querySelector("#reservationDate");
     const modal = document.querySelector("#dishModal");
     const modalDialog = modal?.querySelector(".modal__dialog");
     const modalImage = modal?.querySelector("#modalImage");
@@ -417,28 +418,71 @@
             return;
         }
 
-        reservationForm.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const targetEmail = (reservationForm.dataset.emailTarget || "").trim();
-            const data = new FormData(reservationForm);
-            const values = Object.fromEntries(data.entries());
+        const validateReservationDate = () => {
+            if (!reservationDate || !reservationDate.value) {
+                return true;
+            }
 
-            if (!targetEmail) {
+            const day = new Date(`${reservationDate.value}T12:00:00`).getDay();
+            const isClosedDay = day === 2 || day === 3;
+            reservationDate.setCustomValidity(isClosedDay ? translate("interface.reservationClosedDays") : "");
+
+            if (isClosedDay) {
+                reservationStatus.textContent = translate("interface.reservationClosedDays");
+                reservationStatus.classList.add("is-visible");
+            }
+
+            return !isClosedDay;
+        };
+
+        reservationDate?.addEventListener("change", validateReservationDate);
+
+        reservationForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            if (!validateReservationDate()) {
+                return;
+            }
+
+            const endpoint = (reservationForm.dataset.submitEndpoint || "").trim();
+            const submitButton = reservationForm.querySelector("button[type=\"submit\"]");
+
+            if (!endpoint) {
                 reservationStatus.textContent = translate("interface.reservationPending");
                 reservationStatus.classList.add("is-visible");
                 return;
             }
 
-            const subject = `Solicitud de reserva - ${values.nombre || "Cliente"}`;
-            const body = [
-                `Nombre: ${values.nombre}`,
-                `Telefono: ${values.telefono}`,
-                `Personas: ${values.personas}`,
-                `Fecha: ${values.fecha}`,
-                `Hora: ${values.hora}`,
-                `Zona: ${values.zona}`
-            ].join("\\n");
-            window.location.href = `mailto:${encodeURIComponent(targetEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            reservationStatus.textContent = translate("interface.reservationSending");
+            reservationStatus.classList.add("is-visible");
+            if (submitButton) {
+                submitButton.disabled = true;
+            }
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    body: JSON.stringify(Object.fromEntries(new FormData(reservationForm).entries()))
+                });
+                const result = await response.json().catch(() => ({}));
+
+                if (!response.ok || result.success === false || result.success === "false") {
+                    throw new Error("Reservation submission failed");
+                }
+
+                reservationForm.reset();
+                reservationStatus.textContent = translate("interface.reservationSuccess");
+            } catch (error) {
+                console.error("[Raíces] Reservation submission failed", error);
+                reservationStatus.textContent = translate("interface.reservationError");
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                }
+            }
         });
     };
 
