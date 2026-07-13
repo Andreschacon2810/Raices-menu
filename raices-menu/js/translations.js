@@ -111,6 +111,13 @@
                 "cavas-prosecco": { nav: "Cavas y Prosecco", title: "Cavas, Prosecco y Moscatel" },
                 bebidas: { nav: "Bebidas", title: "Bebidas" }
             },
+            fish: {
+                fula: { name: "Fula" },
+                bocinegro: { name: "Bocinegro" },
+                jurel: { name: "Jurel" },
+                medregal: { name: "Medregal" },
+                dorada: { name: "Dorada" }
+            },
             groups: {
                 "islas-canarias": "Islas Canarias",
                 "vinos-blancos-nacionales": "Vinos blancos nacionales",

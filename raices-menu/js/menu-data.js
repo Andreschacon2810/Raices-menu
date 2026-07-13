@@ -20,8 +20,38 @@
         fishCatalog: data.fishCatalog || false
     });
 
-    // Se rellena con los pescados e imagenes que se incorporen a la carta.
-    window.RAICES_FISH = window.RAICES_FISH || [];
+    window.RAICES_FISH = [
+        {
+            id: "fula",
+            nameKey: "fish.fula.name",
+            image: "assets/img/platos/fula.png",
+            plateImage: "assets/img/platos/fula-plato.png"
+        },
+        {
+            id: "bocinegro",
+            nameKey: "fish.bocinegro.name",
+            image: "assets/img/platos/bocinegro.png",
+            plateImage: "assets/img/platos/bocinegro-plato.png"
+        },
+        {
+            id: "jurel",
+            nameKey: "fish.jurel.name",
+            image: "assets/img/platos/jurel.png",
+            plateImage: "assets/img/platos/jurel-plato.png"
+        },
+        {
+            id: "medregal",
+            nameKey: "fish.medregal.name",
+            image: "assets/img/platos/medregal.png",
+            plateImage: "assets/img/platos/medregal-plato.png"
+        },
+        {
+            id: "dorada",
+            nameKey: "fish.dorada.name",
+            image: "assets/img/platos/dorada.png",
+            plateImage: "assets/img/platos/dorada-plato.png"
+        }
+    ];
 
     window.RAICES_MENU = [
         {
