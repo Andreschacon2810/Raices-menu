@@ -943,6 +943,129 @@ main {
     margin-top: 1.2rem;
 }
 
+.modal--fish .modal__dialog {
+    display: block;
+    width: min(100%, 1080px);
+    background:
+        linear-gradient(135deg, rgba(31, 24, 19, 0.99), rgba(14, 12, 10, 0.99)),
+        var(--color-negro-suave);
+}
+
+.modal--fish .modal__content {
+    padding: 3.5rem 2rem 2rem;
+}
+
+.fish-catalog {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+    margin-top: 1.35rem;
+}
+
+.fish-catalog__empty {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 1.25rem;
+    border: 1px dashed rgba(255, 253, 248, 0.24);
+    border-radius: 8px;
+    color: rgba(255, 253, 248, 0.68);
+}
+
+.fish-card {
+    display: grid;
+    gap: 0.45rem;
+    min-height: 132px;
+    padding: 1.15rem;
+    border: 1px solid rgba(255, 253, 248, 0.14);
+    border-radius: 8px;
+    background: rgba(255, 253, 248, 0.07);
+    color: var(--color-blanco);
+    text-align: left;
+    cursor: pointer;
+    transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.fish-card:hover,
+.fish-card:focus-visible {
+    border-color: var(--color-roble-claro);
+    background: rgba(181, 138, 90, 0.18);
+    transform: translateY(-2px);
+}
+
+.fish-card__title {
+    font-family: var(--font-title);
+    font-size: 1.28rem;
+}
+
+.fish-card__description {
+    color: rgba(255, 253, 248, 0.68);
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.fish-card__action {
+    margin-top: auto;
+    color: var(--color-roble-claro);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.fish-detail {
+    margin-top: 1rem;
+}
+
+.fish-detail__back {
+    margin: 0 0 1.25rem !important;
+}
+
+.fish-detail__heading h2 {
+    margin-bottom: 0.4rem;
+}
+
+.fish-detail__heading p:last-child {
+    max-width: 720px;
+}
+
+.fish-detail__images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.35rem;
+}
+
+.fish-detail__image-card {
+    margin: 0;
+    padding: 0.7rem;
+    border: 1px solid rgba(255, 253, 248, 0.14);
+    border-radius: 8px;
+    background: rgba(255, 253, 248, 0.07);
+}
+
+.fish-detail__image-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.24);
+}
+
+.fish-detail__image-card figcaption {
+    padding: 0.7rem 0.25rem 0.1rem;
+    color: rgba(255, 253, 248, 0.78);
+    font-weight: 700;
+}
+
+.fish-detail__ingredients {
+    margin-top: 1.35rem;
+}
+
+.fish-detail__ingredients h3 {
+    margin-top: 0;
+}
+
 @keyframes modalFade {
     from {
         opacity: 0;
@@ -1124,6 +1247,15 @@ main {
         grid-column: 1;
         grid-row: 2;
         padding: 1.25rem;
+    }
+
+    .modal--fish .modal__content {
+        padding: 3.5rem 1.25rem 1.25rem;
+    }
+
+    .fish-catalog,
+    .fish-detail__images {
+        grid-template-columns: 1fr;
     }
 }
 

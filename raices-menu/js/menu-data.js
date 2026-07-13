@@ -16,8 +16,12 @@
         modalEyebrowKey: data.modalEyebrowKey || null,
         longDescriptionKey: data.longDescription ? `products.${data.id}.longDescription` : null,
         ingredientsKey: data.ingredients ? `products.${data.id}.ingredients` : null,
-        allergensKey: data.allergens ? `products.${data.id}.allergens` : null
+        allergensKey: data.allergens ? `products.${data.id}.allergens` : null,
+        fishCatalog: data.fishCatalog || false
     });
+
+    // Se rellena con los pescados e imagenes que se incorporen a la carta.
+    window.RAICES_FISH = window.RAICES_FISH || [];
 
     window.RAICES_MENU = [
         {
@@ -74,7 +78,11 @@
                 product({
                     id: "pescado-fresco-local",
                     priceKey: "interface.bySelectionWeight",
-                    details: true
+                    details: true,
+                    interactive: true,
+                    fishCatalog: true,
+                    buttonLabelKey: "interface.viewFish",
+                    modalEyebrowKey: "interface.freshFish"
                 }),
                 product({
                     id: "fritura-mar",

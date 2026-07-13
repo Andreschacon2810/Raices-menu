@@ -21,6 +21,9 @@
     const modalLongDescription = modal?.querySelector("#modalLongDescription");
     const modalIngredients = modal?.querySelector("#modalIngredients");
     const modalAllergens = modal?.querySelector("#modalAllergens");
+    const fishCatalogModal = document.querySelector("#fishCatalogModal");
+    const fishCatalogDialog = fishCatalogModal?.querySelector(".modal__dialog");
+    const fishCatalogList = fishCatalogModal?.querySelector("#fishCatalogList");
     const languageSelector = document.querySelector("#languageSelector");
     const languageToggle = document.querySelector("#languageToggle");
     const languagePanel = document.querySelector("#languagePanel");
@@ -29,10 +32,14 @@
     const supportedLanguages = window.RAICES_SUPPORTED_LANGUAGES || ["es", "en", "de", "it", "fr"];
     const languageStorageKey = "raices-language";
     const menuData = window.RAICES_MENU || [];
+    const fishData = window.RAICES_FISH || [];
+    const fishById = new Map(fishData.map((fish) => [fish.id, fish]));
     const productsById = new Map();
     let activeLanguage = getInitialLanguage();
     let lastFocusedElement = null;
     let activeModalProductId = null;
+    let activeFishId = null;
+    let activeOverlay = null;
 
     modalIngredients?.classList.add("modal-ingredients");
     modalAllergens?.classList.add("modal-allergens");
@@ -100,6 +107,18 @@
     };
 
     const getProductName = (product) => translate(product.nameKey);
+
+    const getFishName = (fish) => fish.nameKey ? translate(fish.nameKey) : (fish.name || fish.id);
+
+    const getFishDescription = (fish) => fish.descriptionKey ? translate(fish.descriptionKey) : (fish.description || "");
+
+    const getFishIngredients = (fish) => {
+        if (fish.ingredientsKey) {
+            const ingredients = translate(fish.ingredientsKey);
+            return Array.isArray(ingredients) ? ingredients : [];
+        }
+        return Array.isArray(fish.ingredients) ? fish.ingredients : [];
+    };
 
     const getProductDescription = (product) => product.descriptionKey ? translate(product.descriptionKey) : "";
 
@@ -402,17 +421,103 @@
         root.appendChild(list);
     };
 
+    const renderFishCatalogList = () => {
+        if (!fishCatalogList) {
+            return;
+        }
+
+        activeFishId = null;
+        fishCatalogList.className = "fish-catalog";
+        fishCatalogList.replaceChildren();
+
+        if (!fishData.length) {
+            fishCatalogList.appendChild(createElement("p", "fish-catalog__empty", translate("interface.fishCatalogEmpty")));
+            return;
+        }
+
+        fishData.forEach((fish) => {
+            const card = createElement("button", "fish-card", "");
+            card.type = "button";
+            card.dataset.fishId = fish.id;
+            card.setAttribute("aria-label", translate("interface.openFish", { name: getFishName(fish) }));
+            card.appendChild(createElement("span", "fish-card__title", getFishName(fish)));
+
+            const description = getFishDescription(fish);
+            if (description) {
+                card.appendChild(createElement("span", "fish-card__description", description));
+            }
+            card.appendChild(createElement("span", "fish-card__action", translate("interface.viewFishDetails")));
+            fishCatalogList.appendChild(card);
+        });
+    };
+
+    const renderFishDetail = (fish) => {
+        if (!fishCatalogList || !fish) {
+            return;
+        }
+
+        activeFishId = fish.id;
+        fishCatalogList.className = "fish-detail";
+        fishCatalogList.replaceChildren();
+
+        const backButton = createElement("button", "button button--secondary fish-detail__back", translate("interface.backToFishList"));
+        backButton.type = "button";
+        backButton.dataset.fishBack = "true";
+        fishCatalogList.appendChild(backButton);
+
+        const heading = createElement("div", "fish-detail__heading", "");
+        heading.appendChild(createElement("p", "section-kicker", translate("interface.freshFish")));
+        heading.appendChild(createElement("h2", "", getFishName(fish)));
+        const description = getFishDescription(fish);
+        if (description) {
+            heading.appendChild(createElement("p", "", description));
+        }
+        fishCatalogList.appendChild(heading);
+
+        const images = createElement("div", "fish-detail__images", "");
+        const imageBlocks = [
+            { src: fish.image, label: translate("interface.fishImageLabel") },
+            { src: fish.plateImage, label: translate("interface.plateImageLabel") }
+        ];
+
+        imageBlocks.forEach(({ src, label }) => {
+            const block = createElement("figure", "fish-detail__image-card", "");
+            const image = createElement("img", "", "");
+            image.src = src || "assets/img/platos/placeholder-plato.svg";
+            image.alt = src ? `${label}: ${getFishName(fish)}` : translate("interface.pendingImageOf", { name: getFishName(fish) });
+            image.loading = "lazy";
+            image.onerror = () => {
+                image.src = "assets/img/platos/placeholder-plato.svg";
+            };
+            block.appendChild(image);
+            block.appendChild(createElement("figcaption", "", label));
+            images.appendChild(block);
+        });
+        fishCatalogList.appendChild(images);
+
+        const ingredients = getFishIngredients(fish);
+        if (ingredients.length) {
+            const ingredientsBlock = createElement("div", "fish-detail__ingredients", "");
+            ingredientsBlock.appendChild(createElement("h3", "", translate("interface.ingredients")));
+            const list = createElement("ul", "");
+            ingredients.forEach((ingredient) => list.appendChild(createElement("li", "", ingredient)));
+            ingredientsBlock.appendChild(list);
+            fishCatalogList.appendChild(ingredientsBlock);
+        }
+    };
+
     const trapFocus = (event) => {
         if (event.key === "Escape") {
             closeModal();
             return;
         }
 
-        if (event.key !== "Tab" || !modalDialog) {
+        const activeDialog = activeOverlay === "fish" ? fishCatalogDialog : modalDialog;
+        if (event.key !== "Tab" || !activeDialog) {
             return;
         }
 
-        const focusable = modalDialog.querySelectorAll("a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex='-1'])");
+        const focusable = activeDialog.querySelectorAll("a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex='-1'])");
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
 
@@ -431,12 +536,18 @@
     };
 
     function closeModal() {
+        if (activeOverlay === "fish") {
+            closeFishCatalog();
+            return;
+        }
+
         if (!modal) {
             return;
         }
 
         modal.hidden = true;
         activeModalProductId = null;
+        activeOverlay = null;
         document.body.classList.remove("modal-open");
         document.removeEventListener("keydown", trapFocus);
 
@@ -482,11 +593,14 @@
         if (modalCloseButton) {
             modalCloseButton.textContent = translate("interface.close");
         }
+        const fishModalCloseIcon = fishCatalogModal?.querySelector(".modal__close");
+        fishModalCloseIcon?.setAttribute("aria-label", translate("interface.closeFishCatalog"));
     };
 
     const openModal = (product, trigger) => {
         lastFocusedElement = trigger;
         activeModalProductId = product.id;
+        activeOverlay = "dish";
         updateModalContent(product);
 
         modal.hidden = false;
@@ -495,8 +609,38 @@
         modalDialog.focus();
     };
 
+    const openFishCatalog = (trigger) => {
+        if (!fishCatalogModal || !fishCatalogDialog || !fishCatalogList) {
+            return;
+        }
+
+        lastFocusedElement = trigger;
+        activeOverlay = "fish";
+        renderFishCatalogList();
+        fishCatalogModal.hidden = false;
+        document.body.classList.add("modal-open");
+        document.addEventListener("keydown", trapFocus);
+        fishCatalogDialog.focus();
+    };
+
+    function closeFishCatalog() {
+        if (!fishCatalogModal) {
+            return;
+        }
+
+        fishCatalogModal.hidden = true;
+        activeFishId = null;
+        activeOverlay = null;
+        document.body.classList.remove("modal-open");
+        document.removeEventListener("keydown", trapFocus);
+
+        if (lastFocusedElement && document.contains(lastFocusedElement)) {
+            lastFocusedElement.focus();
+        }
+    }
+
     const initModal = () => {
-        if (!menuSectionsRoot || !modal) {
+        if (!menuSectionsRoot || (!modal && !fishCatalogModal)) {
             return;
         }
 
@@ -507,14 +651,38 @@
             }
 
             const product = productsById.get(trigger.dataset.productId);
-            if (product && product.interactive) {
+            if (product && product.fishCatalog) {
+                openFishCatalog(trigger);
+            } else if (product && product.interactive && modal) {
                 openModal(product, trigger);
             }
         });
 
-        modal.addEventListener("click", (event) => {
+        modal?.addEventListener("click", (event) => {
             if (event.target.closest("[data-modal-close]")) {
                 closeModal();
+            }
+        });
+
+        fishCatalogModal?.addEventListener("click", (event) => {
+            if (event.target.closest("[data-modal-close]")) {
+                closeModal();
+                return;
+            }
+
+            if (event.target.closest("[data-fish-back]")) {
+                renderFishCatalogList();
+                fishCatalogDialog?.focus();
+                return;
+            }
+
+            const fishTrigger = event.target.closest("[data-fish-id]");
+            if (fishTrigger) {
+                const fish = fishById.get(fishTrigger.dataset.fishId);
+                if (fish) {
+                    renderFishDetail(fish);
+                    fishCatalogDialog?.focus();
+                }
             }
         });
     };
@@ -713,6 +881,15 @@
             const product = productsById.get(activeModalProductId);
             if (product) {
                 updateModalContent(product);
+            }
+        }
+
+        if (activeOverlay === "fish" && fishCatalogModal && !fishCatalogModal.hidden) {
+            const fish = activeFishId ? fishById.get(activeFishId) : null;
+            if (fish) {
+                renderFishDetail(fish);
+            } else {
+                renderFishCatalogList();
             }
         }
 
