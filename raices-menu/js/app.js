@@ -12,6 +12,8 @@
     const story = document.querySelector(".story");
     const storyBody = document.querySelector("#storyBody");
     const storyToggle = document.querySelector(".story__toggle");
+    const reservationForm = document.querySelector("#reservationForm");
+    const reservationStatus = document.querySelector("#reservationStatus");
     const modal = document.querySelector("#dishModal");
     const modalDialog = modal?.querySelector(".modal__dialog");
     const modalImage = modal?.querySelector("#modalImage");
@@ -407,6 +409,36 @@
 
         backToTop.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+        });
+    };
+
+    const initReservationForm = () => {
+        if (!reservationForm || !reservationStatus) {
+            return;
+        }
+
+        reservationForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const targetEmail = (reservationForm.dataset.emailTarget || "").trim();
+            const data = new FormData(reservationForm);
+            const values = Object.fromEntries(data.entries());
+
+            if (!targetEmail) {
+                reservationStatus.textContent = translate("interface.reservationPending");
+                reservationStatus.classList.add("is-visible");
+                return;
+            }
+
+            const subject = `Solicitud de reserva - ${values.nombre || "Cliente"}`;
+            const body = [
+                `Nombre: ${values.nombre}`,
+                `Telefono: ${values.telefono}`,
+                `Personas: ${values.personas}`,
+                `Fecha: ${values.fecha}`,
+                `Hora: ${values.hora}`,
+                `Zona: ${values.zona}`
+            ].join("\\n");
+            window.location.href = `mailto:${encodeURIComponent(targetEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         });
     };
 
@@ -833,6 +865,7 @@
 
         const primaryHeroButton = document.querySelector(".hero__actions .button--primary");
         const secondaryHeroButton = document.querySelector(".hero__actions .button--secondary");
+        const reservationHeroButton = document.querySelector(".hero__actions .button--reservation");
         if (pageType === "home") {
             primaryHeroButton.textContent = translate("interface.viewMenu");
             secondaryHeroButton.textContent = translate("interface.storyLink");
@@ -841,7 +874,13 @@
             secondaryHeroButton.textContent = translate("interface.viewMenu");
         }
 
-        document.querySelector(".scroll-cue")?.setAttribute("aria-label", translate("interface.scrollToStoryLabel"));
+        if (reservationHeroButton) {
+            reservationHeroButton.textContent = translate("interface.reservations");
+        }
+        if (pageType === "reservation") {
+            document.querySelector(".hero__kicker").textContent = translate("interface.reservations");
+            document.querySelector(".hero__tagline").textContent = translate("interface.reservationTagline");
+        }
         document.querySelector(".category-nav")?.setAttribute("aria-label", translate("interface.navAria"));
 
         if (story && storyBody) {
@@ -940,6 +979,7 @@
 
     initStory();
     initBackToTop();
+    initReservationForm();
     initModal();
     initLanguageSelector();
     applyLanguage();

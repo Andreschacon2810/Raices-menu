@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#5b3d2a">
+    <meta name="description" content="Reserva tu mesa en Raíces Gran Tarajal.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Raíces">
+    <title>Reservas · Raíces Gran Tarajal</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="assets/icons/icon-192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="preload" href="assets/img/logo-raices.png" as="image">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/menu-data.js" defer></script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body data-page="reservation">
+    <a class="skip-link" href="#reservas">Saltar a reservas</a>
+    <div class="sr-only" id="languageLive" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="hero hero--compact" id="inicio">
+        <div class="hero__inner">
+            <div class="language-selector" id="languageSelector">
+                <button class="language-toggle" id="languageToggle" type="button" aria-expanded="false" aria-controls="languagePanel" aria-label="Cambiar idioma">
+                    <span class="language-toggle__icon" aria-hidden="true">◎</span>
+                    <span class="language-toggle__label">Idioma</span>
+                    <span class="language-toggle__code">ES</span>
+                </button>
+                <div class="language-panel" id="languagePanel" role="group" aria-label="Selector de idioma"></div>
+            </div>
+            <img class="hero__logo" src="assets/img/logo-raices.png" alt="Logo de Raíces con raíces de árbol grabadas en madera" width="900" height="832">
+            <p class="hero__eyebrow">Gran Tarajal · Fuerteventura</p>
+            <h1>RAÍCES</h1>
+            <p class="hero__kicker">Reservas</p>
+            <p class="hero__tagline">Reserva tu mesa en Raíces Gran Tarajal.</p>
+            <div class="hero__actions" aria-label="Accesos principales">
+                <a class="button button--primary" href="index.html">Inicio</a>
+                <a class="button button--secondary" href="index.html#carta">Ver la carta</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="reservation section-shell" id="reservas" aria-labelledby="reservas-title">
+            <div class="reservation__intro">
+                <p class="section-kicker">Reservas</p>
+                <h2 id="reservas-title">Reserva tu mesa</h2>
+                <p>Completa los datos y prepararemos tu solicitud de reserva.</p>
+            </div>
+
+            <form class="reservation-form" id="reservationForm" data-email-target="">
+                <div class="reservation-form__grid">
+                    <div class="reservation-field">
+                        <label for="reservationName">Nombre</label>
+                        <input id="reservationName" name="nombre" type="text" autocomplete="name" required>
+                    </div>
+                    <div class="reservation-field">
+                        <label for="reservationPhone">Número de teléfono</label>
+                        <input id="reservationPhone" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required>
+                    </div>
+                    <div class="reservation-field">
+                        <label for="reservationGuests">Cantidad de personas</label>
+                        <select id="reservationGuests" name="personas" required>
+                            <option value="">Selecciona una cantidad</option>
+                            <option>1</option><option>2</option><option>3</option><option>4</option>
+                            <option>5</option><option>6</option><option>7</option><option>8</option>
+                            <option>9</option><option>10</option><option>11</option><option>12</option>
+                        </select>
+                    </div>
+                    <div class="reservation-field">
+                        <label for="reservationDate">Día</label>
+                        <input id="reservationDate" name="fecha" type="date" required>
+                    </div>
+                    <div class="reservation-field">
+                        <label for="reservationTime">Hora</label>
+                        <select id="reservationTime" name="hora" required>
+                            <option value="">Selecciona una hora</option>
+                            <option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option>
+                            <option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <fieldset class="reservation-fieldset">
+                    <legend>Zona preferida</legend>
+                    <div class="reservation-options">
+                        <label class="reservation-option"><input type="radio" name="zona" value="Terraza" required> Terraza</label>
+                        <label class="reservation-option"><input type="radio" name="zona" value="Salón"> Salón</label>
+                    </div>
+                </fieldset>
+
+                <button class="button button--primary" type="submit">Enviar solicitud</button>
+                <p class="reservation-status" id="reservationStatus" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <img src="assets/img/logo-raices.png" alt="Logo de Raíces" width="220" height="203" loading="lazy">
+            <p class="site-footer__brand">Raíces · Gran Tarajal · Fuerteventura</p>
+            <p>Un lugar para estar, para disfrutar, para volver.</p>
+            <p>Los productos y precios pueden estar sujetos a cambios.</p>
+            <p>Consulta con nuestro personal cualquier duda sobre alérgenos.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Volver arriba"><span aria-hidden="true">↑</span></button>
+</body>
+</html>

@@ -1,8 +1,9 @@
-const CACHE_NAME = "raices-menu-v18";
+const CACHE_NAME = "raices-menu-v19";
 
 const CORE_ASSETS = [
     "./",
     "./index.html",
+    "./reservas.html",
     "./para-compartir.html",
     "./de-la-finca.html",
     "./pastas.html",
