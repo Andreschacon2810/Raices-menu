@@ -1,4 +1,4 @@
-const CACHE_NAME = "raices-menu-v14";
+const CACHE_NAME = "raices-menu-v15";
 
 const CORE_ASSETS = [
     "./",
@@ -24,11 +24,13 @@ const CORE_ASSETS = [
     "./assets/img/logo-raices.png",
     "./assets/img/platos/placeholder-plato.svg",
     "./assets/img/platos/carpaccio-pulpo.png",
+    "./assets/img/platos/bocinegro.png",
     "./assets/img/platos/cordero-miel-pistacho.png",
     "./assets/img/platos/croquetas.png",
     "./assets/img/platos/entrecot-raices.png",
     "./assets/img/platos/espresso-martini.png",
     "./assets/img/platos/fritura-mixta.png",
+    "./assets/img/platos/fula.png",
     "./assets/img/platos/margarita.png",
     "./assets/img/platos/martini-bianco.png",
     "./assets/img/platos/martini-rosso.png",
@@ -44,6 +46,9 @@ const CORE_ASSETS = [
     "./assets/img/platos/salmon-naranja.png",
     "./assets/img/platos/secreto-iberico.png",
     "./assets/img/platos/tiramisu.png",
+    "./assets/img/platos/medregal.png",
+    "./assets/img/platos/vieja.png",
+    "./assets/img/platos/dorada.png",
     "./assets/icons/icon-192.png",
     "./assets/icons/icon-512.png"
 ];

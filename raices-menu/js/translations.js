@@ -116,7 +116,8 @@
                 bocinegro: { name: "Bocinegro" },
                 jurel: { name: "Jurel" },
                 medregal: { name: "Medregal" },
-                dorada: { name: "Dorada" }
+                dorada: { name: "Dorada" },
+                vieja: { name: "Vieja" }
             },
             groups: {
                 "islas-canarias": "Islas Canarias",

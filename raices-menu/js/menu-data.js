@@ -50,6 +50,12 @@
             nameKey: "fish.dorada.name",
             image: "assets/img/platos/dorada.png",
             plateImage: "assets/img/platos/dorada-plato.png"
+        },
+        {
+            id: "vieja",
+            nameKey: "fish.vieja.name",
+            image: "assets/img/platos/vieja.png",
+            plateImage: "assets/img/platos/vieja-plato.png"
         }
     ];
 
