@@ -1,4 +1,4 @@
-const CACHE_NAME = "raices-menu-v15";
+const CACHE_NAME = "raices-menu-v16";
 
 const CORE_ASSETS = [
     "./",
@@ -31,6 +31,7 @@ const CORE_ASSETS = [
     "./assets/img/platos/espresso-martini.png",
     "./assets/img/platos/fritura-mixta.png",
     "./assets/img/platos/fula.png",
+    "./assets/img/platos/jurel.png",
     "./assets/img/platos/margarita.png",
     "./assets/img/platos/martini-bianco.png",
     "./assets/img/platos/martini-rosso.png",

@@ -153,7 +153,6 @@
                 product({
                     id: "pescado-fresco-local",
                     priceKey: "interface.bySelectionWeight",
-                    details: true,
                     interactive: true,
                     fishCatalog: true,
                     buttonLabelKey: "interface.viewFish",
