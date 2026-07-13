@@ -31,7 +31,13 @@
             notePriceKey: "sectionNotes.para-compartir.price",
             items: [
                 product({ id: "uvas-y-quesos", price: "13,00 €" }),
-                product({ id: "croquetas", price: "13,00 €" }),
+                product({
+                    id: "croquetas",
+                    price: "13,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/croquetas.png",
+                    ingredients: true
+                }),
                 product({ id: "langostinos-ajillo", price: "13,00 €" }),
                 product({
                     id: "carpaccio-pulpo-local",
@@ -42,7 +48,13 @@
                 }),
                 product({ id: "carpaccio-salmon", price: "16,00 €" }),
                 product({ id: "jamon-iberico-bellota", price: "32,00 €" }),
-                product({ id: "roast-beef", price: "16,00 €" }),
+                product({
+                    id: "roast-beef",
+                    price: "16,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/roast-beef.png",
+                    ingredients: true
+                }),
                 product({ id: "vitello-tonnato", price: "16,00 €" }),
                 product({ id: "carpaccio-remolacha", price: "13,00 €" })
             ]
@@ -66,8 +78,20 @@
             id: "pastas",
             categoryKey: "categories.pastas",
             items: [
-                product({ id: "pasta-marisco", price: "19,00 €" }),
-                product({ id: "pasta-salmon", price: "19,00 €" })
+                product({
+                    id: "pasta-marisco",
+                    price: "19,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/pasta-marisco.png",
+                    ingredients: true
+                }),
+                product({
+                    id: "pasta-salmon",
+                    price: "19,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/pasta-salmon.png",
+                    ingredients: true
+                })
             ]
         },
         {
@@ -91,7 +115,13 @@
                     image: "assets/img/platos/fritura-mixta.png",
                     ingredients: true
                 }),
-                product({ id: "salmon-naranja", price: "24,00 €" }),
+                product({
+                    id: "salmon-naranja",
+                    price: "24,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/salmon-naranja.png",
+                    ingredients: true
+                }),
                 product({ id: "pulpo-km0", price: "24,00 €" })
             ]
         },
@@ -100,7 +130,13 @@
             categoryKey: "categories.de-la-tierra",
             noteKey: "sectionNotes.de-la-tierra.text",
             items: [
-                product({ id: "medallones-solomillo", price: "24,00 €" }),
+                product({
+                    id: "medallones-solomillo",
+                    price: "24,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/medallones-solomillo.png",
+                    ingredients: true
+                }),
                 product({
                     id: "entrecot-raices",
                     price: "23,00 €",
@@ -115,7 +151,13 @@
                     image: "assets/img/platos/cordero-miel-pistacho.png?v=12",
                     ingredients: true
                 }),
-                product({ id: "secreto-iberico", price: "23,00 €" })
+                product({
+                    id: "secreto-iberico",
+                    price: "23,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/secreto-iberico.png",
+                    ingredients: true
+                })
             ]
         },
         {
@@ -182,7 +224,15 @@
                     modalEyebrowKey: "interface.viewCocktail",
                     ingredients: true
                 }),
-                product({ id: "mojito", price: "8,00 €", details: true, description: false }),
+                product({
+                    id: "mojito",
+                    price: "8,00 €",
+                    interactive: true,
+                    image: "assets/img/platos/mojito.png",
+                    buttonLabelKey: "interface.viewCocktail",
+                    modalEyebrowKey: "interface.viewCocktail",
+                    ingredients: true
+                }),
                 product({
                     id: "margarita",
                     interactive: true,

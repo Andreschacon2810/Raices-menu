@@ -140,7 +140,11 @@
             },
             products: {
                 "uvas-y-quesos": { name: "Uvas y Quesos Saben a Besos", description: "Selección de auténticos quesos de cabra de Fuerteventura." },
-                croquetas: { name: "Croquetas", description: "Según selección del día." },
+                croquetas: {
+                    name: "Croquetas",
+                    description: "Según selección del día.",
+                    ingredients: ["Croquetas", "Masa cremosa", "Pan rallado", "Selección del día"]
+                },
                 "langostinos-ajillo": { name: "Langostinos al Ajillo", description: "Plato tradicional español de langostinos al ajillo con nuestro guiño." },
                 "carpaccio-pulpo-local": {
                     name: "Carpaccio de Pulpo Local con Toques Canarios",
@@ -149,7 +153,11 @@
                 },
                 "carpaccio-salmon": { name: "Carpaccio de Salmón al Estilo Raíces", description: "Salmón fresco marinado al estilo de la casa." },
                 "jamon-iberico-bellota": { name: "Jamón Ibérico de Bellota", description: "Bellota 100 % · D.O.P. Dehesas de Extremadura." },
-                "roast-beef": { name: "Roast Beef", description: "Carne de ternera marinada al estilo del chef, hecha al horno, cortada en lonchas finas y acompañada de rúcula, alcaparras, escamas de parmesano y AOVE." },
+                "roast-beef": {
+                    name: "Roast Beef",
+                    description: "Carne de ternera marinada al estilo del chef, hecha al horno, cortada en lonchas finas y acompañada de rúcula, alcaparras, escamas de parmesano y AOVE.",
+                    ingredients: ["Ternera", "Rúcula", "Alcaparras", "Parmesano", "AOVE"]
+                },
                 "vitello-tonnato": { name: "Vitello Tonnato", description: "Carne de ternera cocida, servida en frío y cubierta con nuestra cremosa salsa a base de atún, mayonesa, anchoas, alcaparras y más." },
                 "carpaccio-remolacha": { name: "Carpaccio de Remolacha", description: "Remolacha finamente cortada, rúcula fresca, fruta de temporada y queso rulo de cabra." },
                 "ensalada-cesar": { name: "Ensalada César", description: "Ensalada de lechuga, pollo empanado, nuestra salsa César casera y queso parmesano rallado." },
@@ -159,17 +167,33 @@
                     description: "Berenjenas fritas terminadas en el horno, con salsa de tomate casera, mozzarella y queso parmesano, aromatizadas con albahaca fresca.",
                     ingredients: ["Berenjena", "Salsa de tomate casera", "Queso", "Especias", "Albahaca"]
                 },
-                "pasta-marisco": { name: "Pasta al Marisco", description: "Pasta fresca italiana salteada con almejas, chipirones, langostinos y mejillones, con nuestra salsa de tomate casera." },
-                "pasta-salmon": { name: "Pasta al Salmón", description: "Pasta fresca italiana salteada con gambas, salmón fresco, toques de queso y nata." },
+                "pasta-marisco": {
+                    name: "Pasta al Marisco",
+                    description: "Pasta fresca italiana salteada con almejas, chipirones, langostinos y mejillones, con nuestra salsa de tomate casera.",
+                    ingredients: ["Pasta fresca", "Almejas", "Chipirones", "Langostinos", "Mejillones", "Salsa de tomate casera"]
+                },
+                "pasta-salmon": {
+                    name: "Pasta al Salmón",
+                    description: "Pasta fresca italiana salteada con gambas, salmón fresco, toques de queso y nata.",
+                    ingredients: ["Pasta fresca", "Gambas", "Salmón fresco", "Queso", "Nata"]
+                },
                 "pescado-fresco-local": { name: "Pescado Fresco Local", description: "Acompañado de papas arrugadas y ensalada, con nuestro mojo picón casero.", details: ["A la espalda", "Frito", "Limpio sin espinas"] },
                 "fritura-mar": {
                     name: "Fritura de Mar",
                     description: "Calamares, chipirones, langostinos y gambones fritos, servidos con ensalada y papas fritas caseras.",
                     ingredients: ["Gambas", "Chipirones", "Calamar", "Langostino", "Papas fritas", "Ensalada verde", "Limón"]
                 },
-                "salmon-naranja": { name: "Salmón a la Naranja", description: "Lomo de salmón con reducción de zumo de naranja natural, con su puré de papas casero." },
+                "salmon-naranja": {
+                    name: "Salmón a la Naranja",
+                    description: "Lomo de salmón con reducción de zumo de naranja natural, con su puré de papas casero.",
+                    ingredients: ["Salmón", "Naranja", "Puré de papas casero"]
+                },
                 "pulpo-km0": { name: "Pulpo Km 0", description: "Pulpo local salteado al wok con tomates cherry y papa canaria." },
-                "medallones-solomillo": { name: "Medallones de Solomillo al Grill", description: "Medallones de solomillo a la parrilla, acompañados de verduras y papas al horno." },
+                "medallones-solomillo": {
+                    name: "Medallones de Solomillo al Grill",
+                    description: "Medallones de solomillo a la parrilla, acompañados de verduras y papas al horno.",
+                    ingredients: ["Solomillo", "Verduras", "Papas al horno"]
+                },
                 "entrecot-raices": {
                     name: "Entrecot al Estilo Raíces",
                     description: "Entrecot al grill cortado en tiras, presentado con rúcula, tomates cherry de Fuerteventura, crema balsámica y queso de cabra de Fuerteventura, acompañado de papas fritas.",
@@ -180,7 +204,11 @@
                     description: "Cordero con miel y pistacho hecho al grill, acompañado de papas y ensalada verde.",
                     ingredients: ["Cordero", "Miel", "Pistacho", "Papas", "Ensalada verde"]
                 },
-                "secreto-iberico": { name: "Secreto Ibérico", description: "Corte de cerdo ibérico a la parrilla, servido con papas fritas y verdura de temporada." },
+                "secreto-iberico": {
+                    name: "Secreto Ibérico",
+                    description: "Corte de cerdo ibérico a la parrilla, servido con papas fritas y verdura de temporada.",
+                    ingredients: ["Secreto ibérico", "Papas fritas", "Verdura de temporada"]
+                },
                 "tarta-queso": { name: "Tarta de Queso", description: "Cremosa tarta de queso con base de galleta al horno.", details: ["Frutos rojos", "Caramelo", "Chocolate"] },
                 tiramisu: {
                     name: "Tiramisú",
@@ -207,7 +235,11 @@
                     description: "Martini Rosso servido con hielo, naranja y un toque aromático.",
                     ingredients: ["Martini Rosso", "Hielo", "Naranja", "Toque de especias o garnish"]
                 },
-                mojito: { name: "Mojito", details: ["Clásico", "Fresa", "Coco", "Piña", "Maracuyá"] },
+                mojito: {
+                    name: "Mojito",
+                    description: "Cóctel refrescante preparado al estilo tradicional.",
+                    ingredients: ["Ron blanco", "Hierbabuena", "Lima", "Azúcar", "Soda", "Hielo"]
+                },
                 margarita: {
                     name: "Margarita",
                     description: "Cóctel cítrico y fresco con tequila, licor de naranja y lima.",

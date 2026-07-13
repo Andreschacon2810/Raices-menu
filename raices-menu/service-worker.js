@@ -1,4 +1,4 @@
-const CACHE_NAME = "raices-menu-v13";
+const CACHE_NAME = "raices-menu-v14";
 
 const CORE_ASSETS = [
     "./",
@@ -25,6 +25,7 @@ const CORE_ASSETS = [
     "./assets/img/platos/placeholder-plato.svg",
     "./assets/img/platos/carpaccio-pulpo.png",
     "./assets/img/platos/cordero-miel-pistacho.png",
+    "./assets/img/platos/croquetas.png",
     "./assets/img/platos/entrecot-raices.png",
     "./assets/img/platos/espresso-martini.png",
     "./assets/img/platos/fritura-mixta.png",
@@ -33,8 +34,15 @@ const CORE_ASSETS = [
     "./assets/img/platos/martini-rosso.png",
     "./assets/img/platos/negroni.png",
     "./assets/img/platos/parmigiana.png",
+    "./assets/img/platos/pasta-marisco.png",
+    "./assets/img/platos/pasta-salmon.png",
     "./assets/img/platos/pina-colada.png",
     "./assets/img/platos/polvito-uruguayo.png",
+    "./assets/img/platos/medallones-solomillo.png",
+    "./assets/img/platos/mojito.png",
+    "./assets/img/platos/roast-beef.png",
+    "./assets/img/platos/salmon-naranja.png",
+    "./assets/img/platos/secreto-iberico.png",
     "./assets/img/platos/tiramisu.png",
     "./assets/icons/icon-192.png",
     "./assets/icons/icon-512.png"
