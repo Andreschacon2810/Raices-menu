@@ -44,7 +44,21 @@
                 fishImageLabel: "Pescado",
                 plateImageLabel: "Plato presentado",
                 backToFishList: "Volver a pescados",
-                closeFishCatalog: "Cerrar catálogo de pescados",
+                viewSangria: "Ver sangría",
+                sangriaCatalog: "Sangrías",
+                sangriaIntro: "Elige una sangría para ver cómo se presenta.",
+                sangriaEmpty: "Aquí aparecerán las sangrías disponibles.",
+                viewSangriaDetails: "Ver sangría",
+                openSangria: "Ver detalles de {name}",
+                viewSpritz: "Ver spritz",
+                spritzCatalog: "Spritz",
+                spritzIntro: "Elige un spritz para ver cómo se presenta.",
+                spritzEmpty: "Aquí aparecerán los spritz disponibles.",
+                viewSpritzDetails: "Ver spritz",
+                openSpritz: "Ver detalles de {name}",
+                drinkImageLabel: "Cóctel",
+                backToCatalog: "Volver al listado",
+                closeCatalog: "Cerrar catálogo",
                 dishDetailsAria: "Ver ficha de {name}",
                 modalEyebrow: "Ver plato",
                 ingredients: "Ingredientes",
@@ -118,6 +132,17 @@
                 medregal: { name: "Medregal" },
                 dorada: { name: "Dorada" },
                 vieja: { name: "Vieja" }
+            },
+            catalogItems: {
+                sangria: {
+                    cava: "Sangría de Cava",
+                    vinoTinto: "Sangría de Vino Tinto",
+                    vinoBlanco: "Sangría de Vino Blanco"
+                },
+                spritz: {
+                    aperol: "Aperol Spritz",
+                    limoncello: "Limoncello Spritz"
+                }
             },
             groups: {
                 "islas-canarias": "Islas Canarias",

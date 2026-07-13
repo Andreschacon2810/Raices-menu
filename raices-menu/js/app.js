@@ -24,6 +24,9 @@
     const fishCatalogModal = document.querySelector("#fishCatalogModal");
     const fishCatalogDialog = fishCatalogModal?.querySelector(".modal__dialog");
     const fishCatalogList = fishCatalogModal?.querySelector("#fishCatalogList");
+    const fishCatalogEyebrow = fishCatalogModal?.querySelector("#fishCatalogEyebrow");
+    const fishCatalogTitle = fishCatalogModal?.querySelector("#fishCatalogTitle");
+    const fishCatalogIntro = fishCatalogModal?.querySelector("#fishCatalogIntro");
     const languageSelector = document.querySelector("#languageSelector");
     const languageToggle = document.querySelector("#languageToggle");
     const languagePanel = document.querySelector("#languagePanel");
@@ -32,13 +35,13 @@
     const supportedLanguages = window.RAICES_SUPPORTED_LANGUAGES || ["es", "en", "de", "it", "fr"];
     const languageStorageKey = "raices-language";
     const menuData = window.RAICES_MENU || [];
-    const fishData = window.RAICES_FISH || [];
-    const fishById = new Map(fishData.map((fish) => [fish.id, fish]));
+    const catalogsById = new Map(Object.entries(window.RAICES_CATALOGS || {}));
     const productsById = new Map();
     let activeLanguage = getInitialLanguage();
     let lastFocusedElement = null;
     let activeModalProductId = null;
-    let activeFishId = null;
+    let activeCatalogId = null;
+    let activeCatalogItemId = null;
     let activeOverlay = null;
 
     modalIngredients?.classList.add("modal-ingredients");
@@ -108,16 +111,16 @@
 
     const getProductName = (product) => translate(product.nameKey);
 
-    const getFishName = (fish) => fish.nameKey ? translate(fish.nameKey) : (fish.name || fish.id);
+    const getCatalogItemName = (item) => item.nameKey ? translate(item.nameKey) : (item.name || item.id);
 
-    const getFishDescription = (fish) => fish.descriptionKey ? translate(fish.descriptionKey) : (fish.description || "");
+    const getCatalogItemDescription = (item) => item.descriptionKey ? translate(item.descriptionKey) : (item.description || "");
 
-    const getFishIngredients = (fish) => {
-        if (fish.ingredientsKey) {
-            const ingredients = translate(fish.ingredientsKey);
+    const getCatalogItemIngredients = (item) => {
+        if (item.ingredientsKey) {
+            const ingredients = translate(item.ingredientsKey);
             return Array.isArray(ingredients) ? ingredients : [];
         }
-        return Array.isArray(fish.ingredients) ? fish.ingredients : [];
+        return Array.isArray(item.ingredients) ? item.ingredients : [];
     };
 
     const getProductDescription = (product) => product.descriptionKey ? translate(product.descriptionKey) : "";
@@ -421,70 +424,87 @@
         root.appendChild(list);
     };
 
-    const renderFishCatalogList = () => {
+    const renderCatalogList = (catalogId) => {
         if (!fishCatalogList) {
             return;
         }
 
-        activeFishId = null;
-        fishCatalogList.className = "fish-catalog";
-        fishCatalogList.replaceChildren();
-
-        if (!fishData.length) {
-            fishCatalogList.appendChild(createElement("p", "fish-catalog__empty", translate("interface.fishCatalogEmpty")));
+        const catalog = catalogsById.get(catalogId);
+        if (!catalog) {
             return;
         }
 
-        fishData.forEach((fish) => {
+        activeCatalogItemId = null;
+        fishCatalogList.className = "fish-catalog";
+        fishCatalogList.replaceChildren();
+        fishCatalogEyebrow && (fishCatalogEyebrow.textContent = translate(catalog.eyebrowKey || catalog.titleKey));
+        fishCatalogTitle && (fishCatalogTitle.textContent = translate(catalog.titleKey));
+        fishCatalogIntro && (fishCatalogIntro.textContent = translate(catalog.introKey));
+
+        if (!catalog.items.length) {
+            fishCatalogList.appendChild(createElement("p", "fish-catalog__empty", translate(catalog.emptyKey)));
+            return;
+        }
+
+        catalog.items.forEach((item) => {
+            const name = getCatalogItemName(item);
             const card = createElement("button", "fish-card", "");
             card.type = "button";
-            card.dataset.fishId = fish.id;
-            card.setAttribute("aria-label", translate("interface.openFish", { name: getFishName(fish) }));
-            card.appendChild(createElement("span", "fish-card__title", getFishName(fish)));
+            card.dataset.catalogId = catalogId;
+            card.dataset.catalogItemId = item.id;
+            card.setAttribute("aria-label", translate(catalog.openItemKey, { name }));
+            card.appendChild(createElement("span", "fish-card__title", name));
 
-            const description = getFishDescription(fish);
+            const description = getCatalogItemDescription(item);
             if (description) {
                 card.appendChild(createElement("span", "fish-card__description", description));
             }
-            card.appendChild(createElement("span", "fish-card__action", translate("interface.viewFishDetails")));
+            card.appendChild(createElement("span", "fish-card__action", translate(catalog.detailsActionKey)));
             fishCatalogList.appendChild(card);
         });
     };
 
-    const renderFishDetail = (fish) => {
-        if (!fishCatalogList || !fish) {
+    const renderCatalogDetail = (catalogId, itemId) => {
+        if (!fishCatalogList) {
             return;
         }
 
-        activeFishId = fish.id;
+        const catalog = catalogsById.get(catalogId);
+        const item = catalog?.items.find((entry) => entry.id === itemId);
+        if (!catalog || !item) {
+            return;
+        }
+
+        activeCatalogItemId = item.id;
         fishCatalogList.className = "fish-detail";
         fishCatalogList.replaceChildren();
 
-        const backButton = createElement("button", "button button--secondary fish-detail__back", translate("interface.backToFishList"));
+        const name = getCatalogItemName(item);
+        const backButton = createElement("button", "button button--secondary fish-detail__back", translate("interface.backToCatalog"));
         backButton.type = "button";
-        backButton.dataset.fishBack = "true";
+        backButton.dataset.catalogBack = "true";
         fishCatalogList.appendChild(backButton);
 
         const heading = createElement("div", "fish-detail__heading", "");
-        heading.appendChild(createElement("p", "section-kicker", translate("interface.freshFish")));
-        heading.appendChild(createElement("h2", "", getFishName(fish)));
-        const description = getFishDescription(fish);
+        heading.appendChild(createElement("p", "section-kicker", translate(catalog.eyebrowKey || catalog.titleKey)));
+        heading.appendChild(createElement("h2", "", name));
+        const description = getCatalogItemDescription(item);
         if (description) {
             heading.appendChild(createElement("p", "", description));
         }
         fishCatalogList.appendChild(heading);
 
         const images = createElement("div", "fish-detail__images", "");
-        const imageBlocks = [
-            { src: fish.image, label: translate("interface.fishImageLabel") },
-            { src: fish.plateImage, label: translate("interface.plateImageLabel") }
-        ];
+        const imageBlocks = [{ src: item.image, label: translate(catalog.imageLabelKey) }];
+        if (catalog.showPlate) {
+            imageBlocks.push({ src: item.plateImage, label: translate(catalog.plateImageLabelKey) });
+        }
 
         imageBlocks.forEach(({ src, label }) => {
             const block = createElement("figure", "fish-detail__image-card", "");
             const image = createElement("img", "", "");
             image.src = src || "assets/img/platos/placeholder-plato.svg";
-            image.alt = src ? `${label}: ${getFishName(fish)}` : translate("interface.pendingImageOf", { name: getFishName(fish) });
+            image.alt = src ? `${label}: ${name}` : translate("interface.pendingImageOf", { name });
             image.loading = "lazy";
             image.onerror = () => {
                 image.src = "assets/img/platos/placeholder-plato.svg";
@@ -495,7 +515,7 @@
         });
         fishCatalogList.appendChild(images);
 
-        const ingredients = getFishIngredients(fish);
+        const ingredients = getCatalogItemIngredients(item);
         if (ingredients.length) {
             const ingredientsBlock = createElement("div", "fish-detail__ingredients", "");
             ingredientsBlock.appendChild(createElement("h3", "", translate("interface.ingredients")));
@@ -512,7 +532,7 @@
             return;
         }
 
-        const activeDialog = activeOverlay === "fish" ? fishCatalogDialog : modalDialog;
+        const activeDialog = activeOverlay === "catalog" ? fishCatalogDialog : modalDialog;
         if (event.key !== "Tab" || !activeDialog) {
             return;
         }
@@ -536,8 +556,8 @@
     };
 
     function closeModal() {
-        if (activeOverlay === "fish") {
-            closeFishCatalog();
+        if (activeOverlay === "catalog") {
+            closeCatalog();
             return;
         }
 
@@ -593,8 +613,10 @@
         if (modalCloseButton) {
             modalCloseButton.textContent = translate("interface.close");
         }
+        const catalogCloseIcon = fishCatalogModal?.querySelector(".modal__close");
+        catalogCloseIcon?.setAttribute("aria-label", translate("interface.closeCatalog"));
         const fishModalCloseIcon = fishCatalogModal?.querySelector(".modal__close");
-        fishModalCloseIcon?.setAttribute("aria-label", translate("interface.closeFishCatalog"));
+        fishModalCloseIcon?.setAttribute("aria-label", translate("interface.closeCatalog"));
     };
 
     const openModal = (product, trigger) => {
@@ -609,27 +631,30 @@
         modalDialog.focus();
     };
 
-    const openFishCatalog = (trigger) => {
+    const openCatalog = (catalogId, trigger) => {
         if (!fishCatalogModal || !fishCatalogDialog || !fishCatalogList) {
             return;
         }
 
         lastFocusedElement = trigger;
-        activeOverlay = "fish";
-        renderFishCatalogList();
+        activeCatalogId = catalogId;
+        activeCatalogItemId = null;
+        activeOverlay = "catalog";
+        renderCatalogList(catalogId);
         fishCatalogModal.hidden = false;
         document.body.classList.add("modal-open");
         document.addEventListener("keydown", trapFocus);
         fishCatalogDialog.focus();
     };
 
-    function closeFishCatalog() {
+    function closeCatalog() {
         if (!fishCatalogModal) {
             return;
         }
 
         fishCatalogModal.hidden = true;
-        activeFishId = null;
+        activeCatalogId = null;
+        activeCatalogItemId = null;
         activeOverlay = null;
         document.body.classList.remove("modal-open");
         document.removeEventListener("keydown", trapFocus);
@@ -651,8 +676,8 @@
             }
 
             const product = productsById.get(trigger.dataset.productId);
-            if (product && product.fishCatalog) {
-                openFishCatalog(trigger);
+            if (product && (product.catalogKey || product.fishCatalog)) {
+                openCatalog(product.catalogKey || "fish", trigger);
             } else if (product && product.interactive && modal) {
                 openModal(product, trigger);
             }
@@ -670,17 +695,19 @@
                 return;
             }
 
-            if (event.target.closest("[data-fish-back]")) {
-                renderFishCatalogList();
+            if (event.target.closest("[data-catalog-back]")) {
+                renderCatalogList(activeCatalogId);
                 fishCatalogDialog?.focus();
                 return;
             }
 
-            const fishTrigger = event.target.closest("[data-fish-id]");
-            if (fishTrigger) {
-                const fish = fishById.get(fishTrigger.dataset.fishId);
-                if (fish) {
-                    renderFishDetail(fish);
+            const catalogTrigger = event.target.closest("[data-catalog-item-id]");
+            if (catalogTrigger) {
+                const catalogId = catalogTrigger.dataset.catalogId;
+                const itemId = catalogTrigger.dataset.catalogItemId;
+                if (catalogId && itemId) {
+                    activeCatalogId = catalogId;
+                    renderCatalogDetail(catalogId, itemId);
                     fishCatalogDialog?.focus();
                 }
             }
@@ -884,12 +911,11 @@
             }
         }
 
-        if (activeOverlay === "fish" && fishCatalogModal && !fishCatalogModal.hidden) {
-            const fish = activeFishId ? fishById.get(activeFishId) : null;
-            if (fish) {
-                renderFishDetail(fish);
+        if (activeOverlay === "catalog" && fishCatalogModal && !fishCatalogModal.hidden) {
+            if (activeCatalogId && activeCatalogItemId) {
+                renderCatalogDetail(activeCatalogId, activeCatalogItemId);
             } else {
-                renderFishCatalogList();
+                renderCatalogList(activeCatalogId);
             }
         }
 

@@ -17,7 +17,8 @@
         longDescriptionKey: data.longDescription ? `products.${data.id}.longDescription` : null,
         ingredientsKey: data.ingredients ? `products.${data.id}.ingredients` : null,
         allergensKey: data.allergens ? `products.${data.id}.allergens` : null,
-        fishCatalog: data.fishCatalog || false
+        fishCatalog: data.fishCatalog || false,
+        catalogKey: data.catalogKey || null
     });
 
     window.RAICES_FISH = [
@@ -58,6 +59,50 @@
             plateImage: "assets/img/platos/vieja-plato.png"
         }
     ];
+
+    window.RAICES_CATALOGS = {
+        fish: {
+            titleKey: "interface.freshFish",
+            introKey: "interface.fishCatalogIntro",
+            emptyKey: "interface.fishCatalogEmpty",
+            detailsActionKey: "interface.viewFishDetails",
+            openItemKey: "interface.openFish",
+            eyebrowKey: "interface.freshFish",
+            imageLabelKey: "interface.fishImageLabel",
+            plateImageLabelKey: "interface.plateImageLabel",
+            showPlate: true,
+            items: window.RAICES_FISH
+        },
+        sangria: {
+            titleKey: "interface.sangriaCatalog",
+            introKey: "interface.sangriaIntro",
+            emptyKey: "interface.sangriaEmpty",
+            detailsActionKey: "interface.viewSangriaDetails",
+            openItemKey: "interface.openSangria",
+            eyebrowKey: "interface.sangriaCatalog",
+            imageLabelKey: "interface.drinkImageLabel",
+            showPlate: false,
+            items: [
+                { id: "sangria-cava", nameKey: "catalogItems.sangria.cava", image: "assets/img/platos/sangria-cava.png" },
+                { id: "sangria-vino-tinto", nameKey: "catalogItems.sangria.vinoTinto", image: "assets/img/platos/sangria-vino-tinto.png" },
+                { id: "sangria-vino-blanco", nameKey: "catalogItems.sangria.vinoBlanco", image: "assets/img/platos/sangria-vino-blanco.png" }
+            ]
+        },
+        spritz: {
+            titleKey: "interface.spritzCatalog",
+            introKey: "interface.spritzIntro",
+            emptyKey: "interface.spritzEmpty",
+            detailsActionKey: "interface.viewSpritzDetails",
+            openItemKey: "interface.openSpritz",
+            eyebrowKey: "interface.spritzCatalog",
+            imageLabelKey: "interface.drinkImageLabel",
+            showPlate: false,
+            items: [
+                { id: "aperol-spritz", nameKey: "catalogItems.spritz.aperol", image: "assets/img/platos/aperol-spritz.png" },
+                { id: "limoncello-spritz", nameKey: "catalogItems.spritz.limoncello", image: "assets/img/platos/limoncello-spritz.png" }
+            ]
+        }
+    };
 
     window.RAICES_MENU = [
         {
@@ -155,6 +200,7 @@
                     priceKey: "interface.bySelectionWeight",
                     interactive: true,
                     fishCatalog: true,
+                    catalogKey: "fish",
                     buttonLabelKey: "interface.viewFish",
                     modalEyebrowKey: "interface.freshFish"
                 })
@@ -232,15 +278,26 @@
             items: [
                 product({
                     id: "sangria-casera",
-                    details: true,
+                    interactive: true,
+                    catalogKey: "sangria",
                     description: false,
+                    buttonLabelKey: "interface.viewSangria",
+                    modalEyebrowKey: "interface.sangriaCatalog",
                     prices: {
                         copa: "6,50 €",
                         media: "10,00 €",
                         litro: "18,00 €"
                     }
                 }),
-                product({ id: "spritz", price: "6,00 €", details: true, description: false }),
+                product({
+                    id: "spritz",
+                    price: "6,00 €",
+                    interactive: true,
+                    catalogKey: "spritz",
+                    description: false,
+                    buttonLabelKey: "interface.viewSpritz",
+                    modalEyebrowKey: "interface.spritzCatalog"
+                }),
                 product({
                     id: "martini-bianco",
                     price: "6,00 €",
